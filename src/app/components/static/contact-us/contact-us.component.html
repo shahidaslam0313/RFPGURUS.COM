@@ -1,0 +1,90 @@
+<section id="contact">
+  <div class="text-center">
+      <h2 class="main_heading">Contact Us</h2>
+    <!-- <h2 class="main_heading">Get in Touch with us</h2>
+    <p>If you feel any kind of queries, Please feel free to Contact Us. Just leave a
+      Message, Our customer support person will contact you.</p> -->
+  </div>
+  <div class="contact-section">
+    <div class="container">
+      <form name="form" role="form"  [formGroup]="form" (ngSubmit)="onSubmit(
+        form.controls.name.value, form.controls.email.value, form.controls.phone.value, form.controls.message.value)"
+        class="sh-signup-form-fix sh-edit-profile">
+        <div class="row signup-form-row">
+            <div class="col-sm-6 col-md-6">
+                <div class="form-group label-floating">
+                  <mat-form-field class="example-full-width">
+                    <input class="sh-text-capt" matInput placeholder="Name" type="text" name="name" maxlength="25" minlength="2" formControlName="name" pattern="[a-zA-Z ]+" required>
+                    <!-- <mat-error *ngIf="form.controls.name.valid == false"><strong>Name cannot be empty or invalid</strong></mat-error> -->
+                    <mat-error *ngIf="form.controls.name.value==''">
+                      <strong>Name cannot be empty</strong>
+                  </mat-error>
+                    <mat-error *ngIf="form.controls.name.errors?.minlength"><strong>Name should be between 2 to 64 characters</strong></mat-error>
+                    <mat-error *ngIf="form.controls.name.hasError('pattern')"><strong>Name must be only in alphabets</strong></mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="form-group label-floating margin-t-10">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder=" Email" type="email" name="email" formControlName="email" required>
+                    <mat-error *ngIf="form.controls.email.valid == false"><strong>Enter valid email </strong></mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="form-group label-floating">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Phone No." type="text"  required name="phone" [textMask]="{mask: phoneMask}" (change)=change($event)
+                      formControlName="phone" [(ngModel)]="phone" >
+                      <!-- <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No"  required>
+                      </int-phone-prefix> -->
+                      <mat-error *ngIf="form.controls.phone.errors?.minlength"><strong>Name should be between 2 to 64 characters</strong></mat-error>
+
+                      <mat-error *ngIf="form.controls.phone.valid == false"><strong>Phone No. cannot be empty or invalid</strong></mat-error>
+                    </mat-form-field>
+                    <p class="error" *ngIf="isInvalid">Enter valid phone number</p> 
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <textarea class="con-textarea" matInput placeholder="Message" formControlName="message" minlength="20" required></textarea>
+                    <mat-error *ngIf="form.controls.message.value==''">
+                      <strong>Message is required</strong>
+                  </mat-error>
+                    <mat-error *ngIf="form.controls.message.errors?.minlength"><strong>Message should be at least 20 characters</strong></mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="recaptcha-btn">
+                    <app-recapcha class="recaptcha-style"></app-recapcha>
+                
+                  <button type="submit" (click)="fun_send_message()" class="btn btn-primary pull-right" [disabled]="!form.valid"><i
+                      class="fa fa-arrow-up" aria-hidden="true" title="Send Message"></i>Send Message</button>
+                </div>
+              </div>
+        </div>
+   
+      </form>
+    </div>
+  </div>
+</section>
+<section id="contact-map">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- <iframe style="width:100%;height: 300px;border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d591.8701350318366!2d-96.84070106119009!3d32.9477595099135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c26d1fbf4ed23%3A0xc61719a6c8cc2c81!2s14681+Midway+Rd+%23200%2C+Addison%2C+TX+75001!5e0!3m2!1sen!2sus!4v1553667443329"  frameborder="0" allowfullscreen></iframe> -->
+        <iframe width="100%" height="350" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=5050%20Quorum%20Drive%20Suite%20700%20Dallas%2C%20TX%2075254&key=AIzaSyBcVkwSRC2BW9c3FsFmhM61fM1c3goI9_4" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-address">
+          <h2>RFPGurus</h2>
+          <h5 > 5050 Quorum Drive Ste 700 Dallas TX 75254</h5>
+          <h2> Establish Contact</h2>
+          <h5 class="phone-contact">
+            <p><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>Email: </span> contact AT RFPGurus DOT com</p>
+            <p><i class="fa fa-phone"></i>&nbsp;&nbsp; <span>Voice: </span>  +1-214-302-7330
+            </p>
+           
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

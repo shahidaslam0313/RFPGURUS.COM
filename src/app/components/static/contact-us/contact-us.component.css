@@ -1,0 +1,59 @@
+.contact-address h2{
+  font-size: 32px;
+  line-height: 32px;
+  margin: 10px 0;
+}
+
+.contact-address h2 {
+  margin: 0
+}
+.contact-address h5{
+font-size: 18px;
+margin: 10px 0;
+}
+#contact-map{
+  padding:  0 50px;
+  margin-top: 20px;
+}
+#contact h2{
+  margin: 0 !important;
+  padding: 20px 0;
+}
+#contact p{
+margin: 0 ;
+}
+#contact {
+background-color: #fff
+}
+.sh-edit-profile .form-group {
+padding-bottom: 0;
+margin: 0
+}
+.contact-section i {
+margin-right: 5px
+}
+.contact-section textarea {
+resize: none;
+height: 115px
+}
+.sh-edit-profile{
+margin-bottom: 10px;
+}
+.margin-t-10 {
+margin-top: 10px !important;
+}
+.recaptcha-btn{
+display: block;
+}
+.recaptcha-btn .recaptcha-style{
+display: inline-block;
+}
+.recaptcha-btn .btn{
+margin-top: 33px;
+}
+.error{
+  color: #f44336;
+  font-size: 12px;
+  font-weight: 700!important;
+  margin-top: -20px!important;
+}

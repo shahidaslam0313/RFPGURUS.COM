@@ -1,0 +1,72 @@
+.text-center .btn-rose {
+  margin: 0 1px
+}
+
+.sh-advanceSearch .mat-input-element{
+  line-height: 26px;
+}
+.sh-advnce-search {
+  margin: 30px auto;
+}
+.srch-result {
+margin: 0!important;
+margin-top: -27px!important
+}
+.adv-pagination>div>div {
+padding: 5px
+}
+
+.sh-advnce-search>.card.one {
+margin-bottom: 0;
+border-radius: 0
+}
+
+.sh-advnce-search .search-holder input[type=search] {
+font-size: 44px;
+line-height: 0;
+width: 100%;
+border: 0;
+border: 1px solid #ccc;
+font-weight: 900;
+border-radius: 50px;
+text-align: center;
+position: relative;
+background: #fff
+}
+
+.sh-advnce-search .search-holder .fa-microphone {
+font-size: 40px;
+right: 25px;
+top: 10px;
+color: #515151;
+position: absolute
+}
+
+.sh-advnce-search .card .card-title {
+font-size: 18px;
+line-height: 16px
+}
+
+.sh-advnce-search .card-header h2 {
+font-size: 22px
+}
+
+.sh-advnce-search .btn.btn-lg {
+padding: 6px 36px;
+border-radius: 50px
+}
+.sh-advnce-search .btn.btn-lg:hover {
+padding: 6px 36px
+}
+.sh-advnce-search>.card.two {
+margin-top: 0;
+border-radius: 0;
+-webkit-box-shadow: 0 6px 6px #ccc;
+box-shadow: 0 6px 6px #ccc
+}
+@media (max-width:991px){
+.sh-pg-container .product-label {
+  margin: 12px 10px 0 0 !important;
+}
+
+}

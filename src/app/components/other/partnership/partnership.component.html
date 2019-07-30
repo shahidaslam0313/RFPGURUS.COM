@@ -1,0 +1,137 @@
+<section class="partnership">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-7 col-lg-5 col-md-offset-6 col-md-6 col-sm-12">
+        <h1><small class="become-a">Become a</small> <br /> RFPGurus Partner</h1>
+        <p class="elevate">Elevate your RFP Bidding experience to a whole new level</p>
+        <!-- <form [formGroup]="partnership" (ngSubmit)="onSubmit()">
+          <div class="form-group" [ngClass]="displayFieldCss(partnership, 'firstname')">
+            <label for="form_name">Name *</label>
+            <input class="form-control sh-text-capt" id="firstname" maxlength="20" formControlName="firstname" placeholder="Name" type="text" />
+            <div *ngIf="firstname.touched && !firstname.valid">
+              <div *ngIf="firstname.errors.required">
+                <strong>First name cannot be empty</strong>
+              </div>
+              <div *ngIf="firstname.errors.pattern">
+                Only Alphabets
+              </div>
+            </div>
+          </div>
+          <div class="form-group" [ngClass]="displayFieldCss(partnership, 'email')">
+            <label for="email">Email *</label>
+            <mat-form-field> -->
+              <!-- <input  id=email class="form-control " formControlName="email" placeholder=" Email"  /> -->
+              <!-- <div *ngIf="email.touched && !email.valid"> -->
+                  <!-- <div *ngIf="email.errors.required"> -->
+                    <!-- <strong>Email cannot be empty</strong> -->
+                  <!-- </div> -->
+                  <!-- <div *ngIf="email.errors.pattern"> -->
+                      <!-- Please enter a valid email address -->
+                  <!-- </div> -->
+                <!-- </div> -->
+              <!-- </mat-form-field> -->
+            
+          <!-- </div> -->
+          <!-- <div class="form-group" [ngClass]="displayFieldCss(partnership, 'cName')"> -->
+            <!-- <label for="cName">Company Name *</label> -->
+            <!-- <mat-form-field> -->
+              <!-- <input class="form-control  sh-text-capt" maxlength="20"  placeholder="Company Name"  formControlName="cName"  id=cName -->
+              <!-- type="text"  /> -->
+             
+              <!-- <div *ngIf="cName.touched && !cName.valid"> -->
+                  <!-- <div *ngIf="cName.errors.required"> -->
+                    <!-- <strong> Company name cannot be empty</strong> -->
+                  <!-- </div> -->
+                  <!-- <div *ngIf="cName.errors.pattern"> -->
+                      <!-- Only Alphabets -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </mat-form-field> -->
+            
+          <!-- </div> -->
+          <!-- <div class="form-group"> -->
+             
+            <!-- <label for="howPart">How can we Partner Up? *</label> -->
+            <!-- <textarea class="form-control" rows="4" id="Partner_description" formControlName="Partner_description" placeholder="How can we Partner Up?" required></textarea> -->
+          <!-- </div> -->
+          <!-- <div class="text-right"> -->
+            <!-- <button class="btn btn-rose" [disabled]="!partnership.valid">Submit</button> -->
+          <!-- </div> -->
+        <!-- </form> -->
+        <div class="example-container">
+
+
+
+
+
+          <form class="partner-form sh-signup-form-fix"[formGroup]="partnership" (ngSubmit)="onSubmit()">
+
+
+
+
+
+
+
+          <div class="form-group" [ngClass]="displayFieldCss(partnership, 'firstname')">
+            <mat-form-field>
+              <input matInput placeholder="Name" id="firstname" maxlength="20" formControlName="firstname" placeholder="Name" type="text" required>
+            </mat-form-field>
+            <div class="error-mat" *ngIf="firstname.touched && !firstname.valid">
+                <div *ngIf="firstname.errors.required">
+                  <strong>Name cannot be empty</strong>
+                </div>
+                <div *ngIf="firstname.errors.pattern">
+                  Only Alphabets
+                </div>
+              </div>
+          </div>
+          <div class="form-group" [ngClass]="displayFieldCss(partnership, 'email')">
+          <mat-form-field>
+              <input matInput placeholder="Email"  id="email" formControlName="email" placeholder="Email" required>
+            </mat-form-field>
+            <div class="error-mat" *ngIf="email.touched && !email.valid">
+                <div *ngIf="email.errors.required">
+                  <strong>Email cannot be empty</strong>
+                </div>
+                <div *ngIf="email.errors.pattern">
+                    Please enter a valid email address
+                </div>
+              </div>
+            </div>
+            <div  class="form-group" [ngClass]="displayFieldCss(partnership, 'cName')">
+            <mat-form-field>
+                <input matInput placeholder="Company Name" maxlength="20"   formControlName="cName" required>
+              </mat-form-field>
+              <div class="error-mat" *ngIf="cName.touched && !cName.valid">
+                  <div *ngIf="cName.errors.required">
+                    <strong> Company name cannot be empty</strong>
+                  </div>
+                  <div *ngIf="cName.errors.pattern">
+                      Only Alphabets
+                    </div>
+                </div>
+              </div>
+              <div>
+            <mat-form-field>
+              <textarea matInput placeholder="How can we Partner Up?" id="Partner_description" formControlName="Partner_description" required></textarea>
+            </mat-form-field>
+          </div>
+          <button class="btn btn-rose" [disabled]="!partnership.valid">Submit</button>
+
+            </form>
+          </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    
+  </div>
+</section>
+

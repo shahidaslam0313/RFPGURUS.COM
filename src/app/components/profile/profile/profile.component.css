@@ -1,0 +1,44 @@
+.card{
+  margin-top: 30px;
+  max-width: 90%;
+  margin: 20px auto;
+  float: none;
+  display: block;
+}
+.card [data-background-color] {
+  font-size: 24px;
+  font-weight: 600;
+  display: inline;
+}
+.mat-error {
+  margin-right: 5px;
+}
+.mat-form-field-subscript-wrapper >div{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.form-footer{
+  padding: 0 0 20px !important;
+}
+.profile-update {
+width: 200px
+}
+.card-content {
+padding: 25px 20px 0;
+}
+.phonee .form-control {
+height: 37px!important;
+}
+.mrg-btm{
+  margin-bottom:10px
+}
+@media (max-width:991px){
+.card{
+  max-width: 90%;
+  margin: 20px auto;
+  float: none;
+  display: block;
+  margin-top: 0;
+}
+}

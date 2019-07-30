@@ -1,0 +1,275 @@
+.footer-upper {
+    padding: 0 50px 10px;
+    background: #000;
+    min-height: 402px;
+    float: left;
+}
+
+.footer-upper h2 {
+    font-size: 28px;
+    color: #fff
+}
+
+.footer-upper .social-link {
+    font-size: 20px
+}
+
+.footer-upper p,
+.list-contact {
+    font-size: 18px;
+    font-weight: 700
+}
+
+.footer-upper p {
+    color: #999
+}
+
+.logo-footer {
+    width: 220px
+}
+
+.logo-footer img {
+    width: 100%
+}
+
+.list-contact a {
+    color: #777;
+    font-weight: 600
+}
+
+.list-contact,
+.list-social li,
+.list-tick {
+    list-style: none
+}
+
+.list-contact a:hover {
+    color: #fff;
+    text-decoration: none
+}
+
+.list-contact li i {
+    width: 25px;
+    text-align: center
+}
+
+.list-contact li,
+.logo-footer {
+    margin: 0 0 10px
+}
+.list-social {
+    font-size: 25px;
+    padding: 10px 0;
+    color: #777
+}
+
+.list-social li a {
+    font-size: 20px;
+    color: #777;
+    font-weight: 600
+}
+
+.list-social li a i {
+    color: #ccc;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    text-align: center;
+    padding: 10px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s
+}
+
+.list-social li a:hover .fa-pinterest {
+    background: #c92228!important;
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    color: #fff!important
+}
+
+.list-social li a:hover {
+    color: #fff;
+    text-decoration: none
+}
+
+.list-social li a:hover .fa-twitter {
+    background: #0084b4!important;
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    color: #fff!important
+}
+
+.list-social li a:hover .fa-facebook {
+    background: #3b5998!important;
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    color: #fff!important
+}
+
+.list-pricing {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 700
+}
+
+.list-pricing li {
+    border-bottom: none!important
+}
+
+.list-pricing i {
+    color: #00cd00;
+    top: 0
+}
+.footer,
+.list-contact>li>a>i {
+    color: #ccc
+}
+
+.subscribe>p {
+    font-size: 15px;
+    line-height: 18px
+}
+
+.subscribe .form-group {
+    margin: 3px 0 0
+}
+
+.subscribe .btn,
+.subscribe .btn:hover {
+    background: #e12721
+}
+
+.footer {
+    background: #1d1d1d;
+    padding: 22px
+}
+
+.footer .social-link {
+    position: relative;
+    z-index: 9;
+    font-weight: 400
+}
+
+.footer .social-link a {
+    color: #ccc;
+    padding: 0 5px;
+    display: inline-block
+}
+
+.footer .social-link a:hover {
+    color: #fff
+}
+
+.footer-link-border {
+    border-right: 2px solid;
+    padding-right: 10px!important
+}
+
+.footer-stores-img h2 {
+    color: #fff;
+    font-size: 18px;
+}
+
+.footer-stores-img img {
+    width: 25%;
+    margin-left: 90px;
+    height: 100%
+}
+
+.sh-subscribe .btn-rose {
+  position: absolute;
+  width: 35px !important;
+  top: 1px;
+  right: 0px;
+  color: #c00;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  z-index: 2;
+  opacity: 1;
+  padding: 5px 0px 5px 0px;
+  background: #fff !important;
+  cursor: pointer;
+  -webkit-transition: .1s;
+  -o-transition: .1s;
+  transition: .1s;
+}
+.sh-subscribe .btn-rose:hover{
+    background: none;
+}
+
+.sh-subscribe button {
+margin: 0!important;
+vertical-align: baseline
+}
+
+.sh-subscribe .alert {
+  border: none;
+padding: 5px;
+line-height: 20px;
+font-size: 13px;
+background-color: transparent!important;
+color: red!important;
+-webkit-box-shadow: none;
+        box-shadow: none;
+}
+
+.sh-subscribe {
+    display: block;
+    position: relative;
+}
+
+
+.sh-subscribe .form-group {
+    padding: 0 0 3px;
+    display: inline-block;
+    width: 80%
+}
+#newsletterEmail {
+    overflow: hidden;
+    border-radius: 50px !important;
+    background: #fefefe;
+    color: #333;
+    border: 1px solid #999;
+    border-right: none;
+    padding: 5px 10px;
+    font-size: 18px!important;
+    font-weight: 700;
+    height: auto!important
+}
+
+#newsletterEmail::-webkit-input-placeholder {
+    font-size: 18px;
+    font-weight: 700
+}
+
+.footer-text p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0
+}
+.sh-h2-resources {
+  margin-left: 27%!important
+}
+@media (max-width:1366px) {
+  .sh-subscribe .form-group {
+    display: block;
+    width: 100%
+}
+#newsletterEmail {
+    border-radius: 50px!important
+}
+.sh-subscribe .btn-rose {
+    border-radius: 50px!important;
+    width: 100%
+}
+}
+@media (max-width:991px) {
+  .footer-stores-img img {
+    margin-left: 10px
+}
+}

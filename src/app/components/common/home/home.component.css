@@ -1,0 +1,971 @@
+/* Start Slider */
+.hd1{
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+}
+.Subscribe-btn{
+    background: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 6px 22px;
+    margin-top: 13px;
+    color: #000;
+}
+.Subscribe-btn:hover{
+    color: #c00;
+}
+.wrapper {
+    height: auto !important;
+    min-height: 100vh !important
+}
+
+.home-main {
+    position: relative;
+    left: 0;
+    right: 0
+}
+
+.bannerCarousel {
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5686274509803921);
+    min-height: 100%;
+}
+
+.download-btns {
+    position: absolute;
+    z-index: 8;
+    right: 20px;
+    top: 20px
+}
+
+.download-btns>a {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.download-btns>a:hover {
+    opacity: .85
+}
+
+.download-btns>a img {
+    width: 150px;
+    height: 100%
+}
+
+.bannerCarousel .banner,
+.bannerCarousel .banner div {
+    height: 100%
+}
+
+.ngxcarousel .ngxcarousel-inner {
+    position: relative;
+    overflow: hidden;
+}
+
+.mainSlider {
+    min-height: 480px;
+}
+
+.bannerCarousel .banner div .item {
+    height: 100% !important
+}
+
+.bannerCarousel .item img {
+    width: 100%;
+    height: 100%
+}
+
+.bannerCarousel .buttons.rightRs {
+    right: 30px
+}
+
+.bannerCarousel .buttons.leftRs {
+    left: 30px
+}
+
+.bannerCarousel .buttons {
+    width: 48px;
+    height: 48px;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    border-radius: 100%;
+    background: #212121;
+    border: none;
+    position: absolute;
+    top: 50%;
+    margin: -24px 0 0;
+    color: #e0f2f1;
+    opacity: .6
+}
+
+.bannerCarousel .buttons:hover {
+    opacity: .95
+}
+
+.form-home {
+    position: absolute;
+    left: 80px;
+    top: 10px;
+    right: 80px;
+}
+.form-home .btn-primary {
+  width: 100%
+}
+.sh-map-desc {
+    padding: 0 10px;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 0 3px 10px #000;
+    margin-left: 8%;
+    background: rgba(0, 0, 0, .45);
+    display: inline
+}
+
+.svg_map {
+    width: 50%
+}
+
+.CategorySlider.slick-initialized {
+    display: block !important
+}
+
+.CategorySlider {
+    max-width: 100%;
+    margin-bottom: 10px;
+    padding: 0 80px;
+    text-align: center
+}
+
+.leftRsBanner,
+.owl-carousel.owl-option-02 .owl-next,
+.owl-carousel.owl-option-02 .owl-prev,
+.rightRsBanner {
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    width: 40px;
+    height: 40px;
+    background: 0 0 !important;
+    cursor: pointer
+}
+
+.leftRsBanner::before,
+.owl-carousel.owl-option-02 .owl-prev::before {
+    font-family: FontAwesome;
+    content: '\f104';
+    font-size: 20px;
+    line-height: 36px;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transition: .5s all;
+    -o-transition: .5s all;
+    transition: .5s all
+}
+.sh-pkg-holder ngx-slick{
+  padding: 0 50px;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+.CategorySliderTop {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .64) !important;
+    border: 1px solid #222;
+    min-height: 130px;
+    padding: 10px;
+    border-radius: 4px;
+    margin-right: 10px
+}
+
+.CategorySlider .item,
+.CategorySlider .item .image {
+    padding: 0 5px;
+    position: relative
+}
+
+ .CategorySlider .item.slick-slide {
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 4px;
+    background: 0 0;
+    margin-right: 10px
+}
+
+.CategorySliderTop:hover .elipsis-cat-slider {
+    background-color: #c00
+}
+
+.CategorySlider .item.slick-slide:hover a {
+    color: red;
+    font-weight: 900
+}
+
+.CategorySlider .item.slick-slide a {
+    position: relative;
+    top: 0;
+}
+
+.CategorySlider .item .image .img {
+    height: 100%;
+    margin: 0 auto
+}
+
+.CategorySlider .item.slick-slide a:hover {
+    color: #fff !important
+}
+
+.CategorySlider .item .image {
+    z-index: 1;
+    border-radius: 10px
+}
+
+/* End Slider */
+
+
+/* Start choose-criteria */
+.choose-criteria {
+    padding: 18px;
+    min-height: 100px;
+    background: #000
+}
+
+.choose-criteria ul {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -10px
+}
+
+.choose-criteria ul li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 40px 0 75px;
+    margin: 0;
+    position: relative;
+    letter-spacing: 0;
+    width: 33%
+}
+
+
+.choose-criteria ul li i {
+    font-size: 60px;
+    line-height: 64px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: auto
+}
+.choose-criteria ul li #demo{
+    color: #fff;
+    margin: 28px 0 !important;
+}
+.choose-criteria ul li a {
+    display: block;
+    color: #fff;
+    cursor: pointer
+}
+
+.choose-criteria ul li a:hover {
+    color: #c00;
+    text-decoration: none
+}
+
+.choose-criteria ul li a:hover i {
+    color: #fff
+}
+
+.choose-criteria ul li p {
+    margin: 0
+}
+
+.choose-criteria ul li h4 {
+    font-size: 28px;
+    line-height: 32px;
+    margin: 0 0 5px;
+    font-weight: 500
+}
+
+/* End choose-criteria */
+
+
+/* Start packages-holder  */
+
+.packages-holder {
+    padding: 0
+}
+
+.packages-holder .btn-holder {
+    text-align: center
+}
+
+.sh-pkg-holder {
+    background: #e8e8e8;
+    padding: 0 30px 30px;
+}
+
+.latest-rfp-div {
+    min-height: 135px;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.sh-pkg-holder .card [data-background-color] {
+    margin: -20px 15px 0;
+    padding: 5px 15px;
+    max-width: 90%;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.card [data-background-color=purple] {
+    background: #000 !important;
+    -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4) !important;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(176, 39, 39, .4) !important
+}
+
+.card .card-title {
+    font-size: 18px;
+    line-height: 19px
+}
+
+.sh-pkg-holder .card .card-content {
+    padding: 0 5px;
+    position: relative
+}
+
+.plan-detail {
+    padding: 0 5px !important
+}
+
+.latest-rfp-div .plan-detail>h3 {
+  margin: 10px 0 !important;
+  max-height: 32px;
+  min-height: 32px;
+  font-size: 16px;
+}
+
+ .plan-detail>h3 {
+    text-align: left;
+    font-size: 18px !important;
+    line-height: 24px
+}
+.banner-rfp{
+  width: 100%;
+  position: relative;
+}
+.banner-rfp img{
+  width: 100%;
+}
+.play-store-img2 {
+  margin: 0;
+  position: absolute;
+  bottom: 40px;
+  left: 37%;
+}
+.play-store-img2 li {
+  display: inline;
+  list-style: none;
+  margin-left: 30px;
+}
+.iosBadge {
+  max-width: 25%;
+}
+.androidBadge {
+  max-width: 25%;
+}
+
+ .plan-detail>h3>a {
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    line-height: 17px;
+    font-weight: normal;
+}
+
+.plan-detail>h5 {
+    margin: 5px 0;
+    font-weight: 600 !important;
+    font-size: .9em
+}
+
+.plan-detail i {
+    color: #000;
+    width: 15px
+}
+
+.plan-detail span {
+    font-size: 12px;
+    color: #333
+}
+
+/* Start Mid Map */
+
+.map-mid {
+    text-align: center;
+    float: none
+}
+
+.mg-top-35px {
+    height: auto;
+    width: 300px;
+    margin-top: 35px
+}
+
+/* End Mid Map */
+
+/* End packages-holder */
+
+
+/**********************Start Search BY Area  ***************************/
+.btn-left,
+.btn-right {
+    background: #000 !important;
+}
+
+.btn-left i,
+.btn-right i {
+    color: #fff !important;
+    font-size: 18px !important;
+}
+
+.btn-left:hover,
+.btn-right:hover {
+    background: #c00 !important;
+}
+
+.s-areaCarousel .item {
+    vertical-align: middle
+}
+
+.s-areaCarousel button {
+    width: calc(100% - 10px);
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    text-transform: capitalize;
+    font-weight: 700;
+    border-radius: 20px
+}
+
+.s-areaCarousel {
+    margin-top: 25px
+}
+
+.s-areaCarousel button img {
+    width: 20px;
+    margin-right: 5px;
+    height: 20px;
+    display: inline;
+}
+
+.s-areaCarousel .buttons {
+    width: 30px;
+    height: 30px;
+    background: #c00;
+    padding: 0;
+    margin: 0;
+    bottom: 5px
+}
+
+.s-areaCarousel .buttons.rightRs {
+    position: absolute;
+    right: -35px;
+    padding: 0 !important;
+}
+
+.s-areaCarousel .buttons.leftRs {
+    position: absolute;
+    left: -35px;
+    padding: 0 !important;
+}
+
+.s-areaCarousel .buttons i {
+    font-size: 30px;
+    line-height: 30px
+}
+
+.interest-area.sh button .fa.fa-arrow-left,
+.interest-area.sh button .fa.fa-arrow-right {
+    line-height: 23px !important
+}
+
+.interest-area {
+  background: #fff;
+  padding: 10px 0 30px
+}
+
+.interest-area .container>strong {
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  margin: 0 0 15px;
+  display: block
+}
+
+.interest-area ul {
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center
+}
+
+.interest-area ul li {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.interest-area ul li a {
+  -webkit-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+  width: 170px;
+  height: 110px;
+  display: block;
+  padding: 20px;
+  color: #bf360c;
+  border-radius: 4px;
+  background: #f3f0ef
+}
+
+.interest-area ul li a:hover {
+  background: #bf360c;
+  color: #fff
+}
+
+.interest-area ul li a:hover span {
+  color: #fff
+}
+
+.interest-area ul li a span {
+  -webkit-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+  font-size: 16px;
+  line-height: 20px;
+  display: block;
+  padding: 6px 0 0;
+  font-weight: 700;
+  color: #bf360c
+}
+/**********************End Search BY Area  ***************************/
+
+/**********************Start How RFP Help  ***************************/
+.how-rfp-help {
+    background-color: #fff;
+}
+.how-rfp-help p {
+    padding: 20px 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px
+}
+.how-rfp-help span {
+    font-size: 20px;
+    font-weight: 600
+}
+.top-lists ul li {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    list-style: none;
+}
+
+.top-lists li:before {
+    font-family: FontAwesome;
+    content: '\f0a9';
+    margin: 0 5px 0 -15px;
+    color: red
+}
+
+
+
+.last-3-para p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 10px 0
+}
+
+/**********************Start How RFP Help  ***************************/
+
+/**********************Start RFPGurus Portfolio  ***************************/
+.pw-solutions ul {
+    letter-spacing: -10px;
+    margin: 0 -10px
+}
+
+.home.pw-solutions ul li {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: 0;
+    margin: 0 0 20px;
+    padding: 0 10px
+}
+
+.pw-solutions ul li .holder.icons {
+    padding: 25px 8px 8px
+}
+
+.pw-solutions ul li .holder:hover {
+    -webkit-box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
+    box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05)
+}
+
+.pw-solutions ul li .holder:hover i {
+    -webkit-animation: popupDown .7s;
+    animation: popupDown .7s
+}
+
+
+.pw-solutions ul li .holder.red i {
+    color: #c62828;
+    border-color: #c62828
+}
+
+.pw-solutions ul li .holder.red .btn {
+    background: #c62828
+}
+
+.pw-solutions ul li .holder.purple i {
+    color: #4527a0;
+    border-color: #4527a0
+}
+
+.pw-solutions ul li .holder.purple .btn {
+    background: #4527a0
+}
+
+.pw-solutions ul li .holder.pink i {
+    color: #ad1457;
+    border-color: #ad1457
+}
+
+.pw-solutions ul li .holder.pink .btn {
+    background: #ad1457
+}
+
+.pw-solutions ul li .holder.green i {
+    color: #2e7d32;
+    border-color: #2e7d32
+}
+
+.pw-solutions ul li .holder.green .btn {
+    background: #2e7d32
+}
+
+.pw-solutions ul li h3 {
+    text-align: center;
+    margin: 0
+}
+
+.pw-solutions ul li .img-holder {
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center
+}
+
+.pw-solutions ul li .img-holder .material-icons {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    line-height: 100px;
+    border: 1px solid #dc143c;
+    border-radius: 100%;
+    text-align: center;
+    margin: 0 0 15px
+}
+
+.pw-solutions ul li .txt-holder {
+    padding: 10px
+}
+
+.pw-solutions ul li .btn-holder {
+    text-align: center
+}
+
+.pw-solutions ul li a {
+    display: block
+}
+
+.pw-solutions ul li a img {
+    max-width: 100%
+}
+
+.pw-solutions ul li {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: 0;
+    margin: 0 0 20px;
+    padding: 0 10px
+}
+
+
+.pw-solutions ul li {
+    width: 33%
+}
+
+.pw-solutions ul li .holder {
+    height: 100%;
+    -webkit-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    padding: 8px;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+    background: #fff;
+    border-radius: 6px
+}
+
+.fourcolumns .holder {
+    min-height: 500px;
+}
+.pw-solutions ul li .holder{
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3)
+}
+.pw-solutions {
+  padding: 10px!important
+}
+/**********************End RFPGurus Portfolio  ***************************/
+
+
+/******************* Strat Success for your Business *********************/
+.success-for-business {
+    font-size: 18px;
+    line-height: 25px;
+    background: url(../../../../assets/img/business-02.jpg);
+    /* background-image: linear-gradient(to right top,#000,#37141b,#6a1c23,#9c2a21,#c94308); */
+    color: #fefefe;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 10px;
+}
+
+.success-for-business:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5)
+}
+
+.success-for-business>.container {
+    position: relative;
+    z-index: 1
+}
+
+.success-for-business h4 {
+    font-size: 30px;
+    line-height: 34px;
+    font-weight: 500
+}
+
+.success-for-business .icon-box {
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    padding: 45px 20px 20px;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 320px;
+    cursor: pointer
+}
+
+.success-for-business .icon-box:hover {
+    background: rgba(204, 0, 0, 0.4117647058823529)
+}
+
+.success-for-business .icon-box:hover .material-icons {
+    color: #fefefe
+}
+
+.success-for-business .material-icons {
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    font-size: 65px;
+    line-height: 65px;
+    color: #e53935
+}
+
+/******************* End Success for your Business  **********************/
+
+/* ================== Main Silders */
+
+.slide {
+    min-height: 390px;
+}
+
+.slider-img {
+    width: 100%;
+}
+.must-login {
+  text-align: center;
+  font-size: 32px;
+  color: #000;
+  font-weight: 600!important
+}
+.login-or-signup:after{
+  content: ''
+}
+.login-or-signup:after {
+position: absolute;
+left: 0;
+top: -72px;
+right: 0;
+bottom: -9999px
+}
+.txt-holder {
+  font-family: ' Roboto', sans-serif
+}
+.custom-popup-img img {
+  width: 35%;
+  height: 100%
+}
+.custom-model .modal-content {
+  background-color: rgba(255, 255, 255, .85)
+}
+.custom-model .modal-body {
+font-family: Helvetica!important
+}
+.custom-model {
+  z-index: 9;
+  top: 80px;
+  max-width: 900px;
+  min-width: 900px;
+  width: 900px;
+}
+.custom-model .modal-body {
+    text-align: center;
+    padding: 5px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px
+}
+
+.custom-model .modal-footer {
+    text-align: center;
+    padding-top: 20px!important;
+    padding-bottom: 20px
+}
+.btn-must-signup {
+  margin: 0 10px!important
+}
+.premium .plan-price {
+  background: #3498db!important;
+  color: #fff!important
+}
+.choose-criteria img {
+  width: 20%
+}
+.img.cat-slide {
+  border: none;
+  width: 100%;
+}
+.sh-pkg-holder .item{
+  padding: 0;
+  margin-right: 10px
+}
+.login-template{
+    overflow: hidden;
+}
+.login-template img{
+    width: 100%;
+}
+.on-load-popup{
+    position: relative;
+}
+.on-load-popup .close-button{
+    float: right;
+    position: absolute;
+    right: 6px;
+    top: 13px;
+}
+.on-load-popup .close-button button{
+    background: none;
+    color: #000;
+    opacity: 1;
+}
+.Sub-btn{
+    font-size: 20px;
+    padding: 6px 40px;
+}
+
+
+@media (max-width:1280px) {
+  .Subscribe-btn {
+    padding: 6px 15px;
+  }
+
+}
+@media (max-width:1024px) {
+  .form-home {
+      left: 55px
+  }
+  .packages-holder .dropdown-toggle {
+    width: 100%
+}
+}
+
+
+@media (max-width:991px) {
+  .mrgn-tab {
+      margin-bottom: 30px
+  }
+  .CategorySliderTop .image {
+    width: 50px
+}
+.sh-map-desc {
+  margin-left: 0
+}
+.choose-criteria ul li h4 {
+font-size: 22px !important;
+}
+.choose-criteria ul li p {
+font-size: 14px;
+line-height: 18px;
+}
+.custom-model {
+max-width: 700px;
+min-width: 700px;
+width: 700px;
+}
+.benner-conter{
+width: 300px;
+position: absolute;
+right: 13px;
+top: 139px;
+}
+.success-for-business h4 {
+  font-size: 24px
+}
+.success-for-business .icon-box {
+  padding: 0
+}
+}
+@media (max-width:640px) {
+  .benner-conter {
+    right: -18px;
+    top: 115px;
+}
+.form-home{
+  display: none;
+}
+}

@@ -1,0 +1,76 @@
+<div class="login-form-1-img m-top-minus-15 ">
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://storage.coursefrenzy.com/videos/RFPGurus_(1).mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <div class="login-form-1-center card">
+            <form [formGroup]="login" class="login-form-1 sh-signup-form-fix sh">
+                <div class="login-form-1-header">
+                    <h3>Sign In to Your Account</h3>
+                    <div class="g-f-login text-center">
+                        <a (click)="signInWithFB()"><img src="../../../../assets/img/icon-facebook.png" alt="img"></a>
+                        <a (click)="signInWithGoogle()"><img src="../../../../assets/img/icon-Google.png" alt="img"></a>
+                    </div>
+                </div>
+                <div class="card-content margin-t-10">
+                    <div class="form-group label-floating" [ngClass]="displayFieldCss(login, 'username')">
+                        <mat-form-field>
+                            <input matInput type="text" id="username" autofocus formControlName="username"
+                                placeholder="Username" required />
+                            <mat-error *ngIf="login.controls.username.value == ''">
+                                <strong class="error-block">Username cannot be empty</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="margin-t-mines15 form-group label-floating"
+                        [ngClass]="displayFieldCss(login, 'password')">
+                        <mat-form-field>
+                            <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"
+                            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                formControlName="password" placeholder="Password" required />
+                                
+                            <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+
+                            <mat-error *ngIf="login.controls.password.value == ''">
+                                <strong class="error-block">Password cannot be empty</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group dp-flex">
+                        <div class="checkbox col-sm-6 padding-0 dp-inline">
+                            <mat-slide-toggle [checked]="true">Stay Signed in</mat-slide-toggle>
+                            <label>
+                                <a class="form-1-forgot" (click)="foremail()">
+                                    Forgot Password?
+                                </a>
+                            </label>
+                        </div>
+                        <app-recapcha class="dp-inline"></app-recapcha>
+                    </div>
+                    <div class="form-footer ">
+                        <div class="form-group text-center ">
+                            <button type="submit" class="btn btn-rose btn-fill btn-wd sh-signin-btn"
+                                (click)="onLogin()">Sign In
+                            </button>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12 text-center padding-0 mt-15">
+                                <span class="no_account">No Account Yet?
+                                    <a class="blue-color" routerLink="/signup">Sign Up</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other-logins ">
+                        <div class="term-privacy text-center">
+                            <a class="blue-color" [routerLink]="['/terms']" target="_blank">Terms of Use </a>
+                            <a class="blue-color" [routerLink]="['/privacy-policy']" target="_blank">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

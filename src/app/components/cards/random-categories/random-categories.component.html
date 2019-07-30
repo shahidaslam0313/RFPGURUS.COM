@@ -1,0 +1,35 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 s_i_list">
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 bottom-lists sh">
+    <ul class="list5">
+      <li *ngFor="let cat1 of category1">
+        <img src="../../../../assets/img/New Icons/{{cat1}}.png" alt="RFPGurus" />
+        <a class="curser-pointer"  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat:cat1}">{{cat1}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 bottom-lists mrgn-tab">
+    <ul>
+      <li *ngFor="let cat2 of category2">
+        <img src="../../../../assets/img/New Icons/{{cat2}}.png" alt="RFPGurus" />
+        <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat:cat2}">{{cat2}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 bottom-lists">
+    <ul>
+      <li *ngFor="let cat3 of category3">
+        <img src="../../../../assets/img/New Icons/{{cat3}}.png" alt="RFPGurus" />
+        <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat:cat3}">{{cat3}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 bottom-lists">
+    <ul>
+      <li *ngFor="let cat4 of category4">
+        <img src="../../../../assets/img/New Icons/{{cat4}}.png" alt="RFPGurus" />
+        <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat:cat4}">{{cat4}}</a>
+      </li>
+      <li> <a routerLink="all-category">And Others</a></li>
+    </ul>
+  </div>
+</div>

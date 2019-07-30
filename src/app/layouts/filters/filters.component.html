@@ -1,0 +1,23 @@
+<!-- ===================== filters side bar ===================== -->
+
+<div class="container-fluid padding-0" >
+    <div class="navbar-minimize sidebarToggle" >
+        <button class="btn btn-round btn-white btn-fill btn-just-icon" (click)="w3_open()">
+          <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+          <i class="material-icons visible-on-sidebar-mini">view_list</i>
+          <div class="ripple-container"></div>
+        </button>
+        <strong>Search Filters</strong>
+      </div>
+  <div class="sidebar-outlet w3-animate-left" id="mySidebar">
+    <div async class="sidebar custom sh-sidebar " >
+      <div class=" text-right padding-0 sidebar-close-btn"><button class="btn btn-close" (click)="w3_close()">X</button></div>
+      <app-filter-sidebar></app-filter-sidebar>
+    </div>
+    
+  </div>
+  <div class="content-router-outlet">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

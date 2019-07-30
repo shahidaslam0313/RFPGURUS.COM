@@ -1,0 +1,335 @@
+<!-- <app-loader></app-loader> -->
+
+<div class="main-panel max-width-1000 agency-rfp" [ngClass]="status ? 'sidebarActive' : ''">
+    <div class="main-content custom">  
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title">
+                        <div class="col-sm-6 col-xs-6" >
+                            <span>
+                                <span *ngIf="state != 'Federal'">RFPs in</span>
+                                {{state}}
+                                <span *ngIf="state == 'Federal'">RFPs</span>
+                            </span>
+                        </div>
+                        <div class="col-sm-6 text-right col-xs-6" >
+                            <span *ngIf="item">No of RFPs: <b>{{item | number}}</b></span>
+                        </div>
+                    </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="MYHeader" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header sh-pg-container">
+
+
+                        <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 text-right">
+                            <ul class=" pagination" *ngIf="pager.pages && pager.pages.length">
+                                <li [ngClass]="{hide:pager.currentPage === 1}">
+                                    <a onclick="topFunction()" (click)="setPage(1)" class="view-1s" class="btn btn-fill">
+                                        <i class="fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                                <li [ngClass]="{hide:pager.currentPage === 1}">
+                                    <a onclick="topFunction()" (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                                        <i class="fa fa-angle-left"></i>
+                                    </a>
+                                </li>
+                                <li [ngClass]="{hide:pager.currentPage <= 30}">
+                                    <a onclick="topFunction()" (click)="setPage(pager.currentPage - 30)">...</a>
+                                </li>
+                                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                    <a onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page | number}}</a>
+                                </li>
+
+                                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"
+                                    *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 3)">...</a>
+                                </li>
+                                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                    <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                        | number}}</a>
+                                </li>
+                                <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                                <li *ngIf="pager.currentPage === pager.totalPages">
+                                    <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                        | number}}</a>
+                                </li>
+                                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details"
+                                        class="btn btn-fill" type="Next">
+                                        <i class="fa fa-angle-right top-set"></i>
+                                    </a>
+                                </li>
+                                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                    <a  onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details"
+                                        class="btn btn-fill" type="Next">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 prod-select-list sec-list sh-select-list"
+                            *ngIf="pager.pages && pager.pages.length">
+                            <label class="product-label">Items per page:
+                            </label>
+                            <mat-form-field>
+
+                                <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                    name="pageSize">
+                                    <mat-option onclick="topFunction()" value="10" selected="true">10</mat-option>
+                                    <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                                    <mat-option onclick="topFunction()" value="35">35</mat-option>
+                                    <mat-option onclick="topFunction()" value="50">50</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12 text-center mg-top-100" *ngIf="item == 0 ">
+                        <i class="fa fa-exclamation-triangle" style="font-size:35px;padding:15px 0 0;"></i>
+                        <h3 class="text-center">No Record Found</h3>
+                    </div>
+                    <div class="products-area sh-products-area">
+                        <div *ngFor="let rfp of record" class="card">
+                            <div class="row">
+                                <div class="col-sm-12 ">
+                                    <div class="card-header card-header-text" data-background-color="purple">
+                                        <a style="cursor:pointer" [routerLink]="['/rfp']"
+                                            [queryParams]="{query:rfp.seoTitleUrl}" (click)="move()">
+                                            <h4 class="card-title">{{rfp.rfpkey}}</h4>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
+                                            <h3>
+                                                <a style="cursor:pointer" [routerLink]="['/rfp']"
+                                                    [queryParams]="{query:rfp.seoTitleUrl}" (click)="move()">
+                                                    {{rfp.title}}</a>
+                                            </h3>
+
+                                            <div class="col-md-6 padding-0">
+                                                <h4 class="view-more collapsed" data-toggle="collapse"
+                                                    attr.data-target="#View{{rfp.id}}">
+                                                    Details
+                                                    <i class="material-icons">arrow_drop_down</i>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
+                                            <!--<h4>Detail:</h4>-->
+                                            <div class="table">
+                                                <table class="table-normal">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>
+                                                                <i class="glyphicon glyphicon-calendar"></i> Posted Date
+                                                            </td>
+                                                            <td>
+                                                                <i class="glyphicon glyphicon-calendar"></i> Submission
+                                                                Deadline</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngIf="!adminlogin">
+                                                            <td *ngIf="check(rfp.date_entered) == true">
+                                                                {{rfp.date_entered | date:'EEEE, MMM dd, y'}}</td>
+                                                            <td *ngIf="check(rfp.date_entered) == false"></td>
+                                                            <td *ngIf="check(rfp.due_date) == true">
+                                                                {{rfp.due_date | date:'EEEE, MMM dd, y'}}</td>
+                                                            <td *ngIf="check(rfp.due_date) == false"></td>
+                                                        </tr>
+                                                        <tr *ngIf="adminlogin">
+                                                            <td>{{rfp.date_entered}}</td>
+
+                                                            <td>{{rfp.due_date}}</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6 padding-0" *ngIf="!subscribe">
+                                                <button (click)="memberonly()" class="btn btn-rose sub"
+                                                    title="Subscribe Package">Subscribe Now
+                                                    <!--  -->
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-12">
+
+                                        <div attr.id="View{{rfp.id}}" class="panel-details collapse">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
+                                                <h5 *ngIf="rfp.agency"><i class="fa fa-building-o"></i> Agency : <a class="cat-elips"
+                                                        [routerLink]="['/agency']"
+                                                        [queryParams]="{ agency: rfp.agency}"><span><b>{{rfp.agency}}</b></span></a>
+                                                </h5>
+                                                <h5>
+                                                    <i class="fa fa-university"></i> Category :
+                                                    <a  class="cat-elips" [routerLink]="['/category']"
+                                                        [queryParams]="{ cat: rfp.new_category}"><span><b>{{ rfp.new_category}}</b></span></a>
+                                                </h5>
+                                                <h5>
+                                                    <i class="fa fa-fort-awesome"></i> State : <a
+                                                        [routerLink]="['/state']"
+                                                        [queryParams]="{ state: rfp.state}"><span><b>
+                                                                {{ rfp.state}}</b></span></a>
+                                                </h5>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
+                                                <ul class="list-normal">
+                                                    <li *ngIf="!subscribe; else pdf">
+                                                        <a routerLink="/pricing">
+                                                            <i class="fa fa-credit-card"></i>
+                                                            View Pricing/Package Details
+                                                        </a>
+                                                    </li>
+                                                    <ng-template #pdf>
+                                                        <li (click)="check_trial(rfp.id,rfp.web_info,rfp.title)"
+                                                            *ngIf=" rfp.rfp_reference == 'Download File' ; else link ">
+                                                            <a>
+                                                                <i class="material-icons">insert_drive_file</i>
+                                                                View Documents
+                                                            </a>
+
+                                                        </li>
+                                                        <ng-template #link>
+                                                            <li (click)="check_trial(rfp.id,rfp.web_info,rfp.title)">
+
+                                                                <a>
+                                                                    <i class="material-icons">insert_drive_file</i>
+                                                                    View Documents
+                                                                </a>
+                                                            </li>
+                                                        </ng-template>
+                                                    </ng-template>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0"
+                                                *ngIf="subscribe">
+                                                <div class="col-md-12" *ngIf="rfp.descriptionTag == null">
+                                                    <h3 class="description-detail">Description:</h3>
+
+                                                    <div [innerHTML]="rfp.deescription"></div>
+
+                                                </div>
+                                                <div class="col-md-12 padding-0" *ngIf="rfp.descriptionTag != null">
+                                                    <h3 class="description-detail">Description:</h3>
+                                                    <div [innerHTML]="rfp.descriptionTag"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail padding-0"
+                                                *ngIf="!subscribe">
+                                                <h5><i class="fa fa-info dscrption-icon"></i> Description:
+                                                    <a style="cursor:pointer" (click)="memberonly()"
+                                                        class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member
+                                                        Only</a>
+                                                </h5>
+                                                <h5><i class="fa fa-file"></i> Bid Documents:
+                                                    <a style="cursor:pointer" (click)="memberonly()"
+                                                        class="memberOnly"><i class="fa fa-lock lock-icon"></i>Member
+                                                        Only</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sh-pg-container">
+
+                <!-- <mat-paginator #paginator
+                   [length]="length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="pageEvent = $event; onPaginateChange($event)">
+    </mat-paginator> -->
+                <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 text-right">
+                    <ul class=" pagination" *ngIf="pager.pages && pager.pages.length">
+                        <li [ngClass]="{hide:pager.currentPage === 1}">
+                            <a onclick="topFunction()" onclick="topFunction()" (click)="setPage(1)" class="view-1s" class="btn btn-fill">
+                                <i class="fa fa-angle-double-left"></i>
+                            </a>
+                        </li>
+                        <li [ngClass]="{hide:pager.currentPage === 1}">
+                            <a onclick="topFunction()" onclick="topFunction()"(click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        </li>
+                        <li [ngClass]="{hide:pager.currentPage <= 30}">
+                            <a onclick="topFunction()" onclick="topFunction()" (click)="setPage(pager.currentPage - 30)">...</a>
+                        </li>
+                        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                            <a onclick="topFunction()" onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page | number}}</a>
+                        </li>
+
+                        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"
+                            *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                            <a onclick="topFunction()" onclick="topFunction()" (click)="setPage(pager.currentPage + 3)">...</a>
+                        </li>
+                        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                            <a onclick="topFunction()" onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                | number}}</a>
+                        </li>
+                        <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                        <li *ngIf="pager.currentPage === pager.totalPages">
+                            <a onclick="topFunction()" onclick="topFunction()"(click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                | number}}</a>
+                        </li>
+                        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                            <a onclick="topFunction()" onclick="topFunction()"(click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn btn-fill"
+                                type="Next">
+                                <i class="fa fa-angle-right top-set"></i>
+                            </a>
+                        </li>
+                        <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                            <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" class="btn btn-fill"
+                                type="Next">
+                                <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 prod-select-list sec-list sh-select-list"
+                    *ngIf="pager.pages && pager.pages.length">
+                    <label class="product-label">Items per page:
+                    </label>
+                    <mat-form-field>
+<!-- 
+                        <mat-select class="width-sec" placeholder="" value="{{pageSize}}" (change)="page(pageSize)"
+                            value="pageSize" required [(ngModel)]="pageSize" name="pageSize"> -->
+                            <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                    (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                    name="pageSize">
+                            <mat-option onclick="topFunction()"  value="10" selected="true">10</mat-option>
+                            <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                            <mat-option onclick="topFunction()" value="35">35</mat-option>
+                            <mat-option onclick="topFunction()" value="50">50</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <app-footer-cmp class="inner"></app-footer-cmp> -->

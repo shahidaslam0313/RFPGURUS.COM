@@ -1,0 +1,26 @@
+<app-header async></app-header>
+<div class="wrapper " style="overflow: hidden ;">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class="navbar-minimize sidebarToggle">
+        <button class="btn btn-round btn-white btn-fill btn-just-icon" (click)="w3_open()">
+          <i class="material-icons visible-on-sidebar-regular">more_vert</i>
+          <i class="material-icons visible-on-sidebar-mini">view_list</i>
+          <div class="ripple-container"></div>
+        </button>
+      </div> -->
+
+      <div async class="minHeight">
+      <router-outlet></router-outlet>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- <div  [class.dashboard-footer]="status != 'none'"> -->
+    <app-footer async></app-footer>
+  <!-- </div> -->
+  <button onclick="topFunction()" id="myBtn" title="Go to top" style="
+  background:#cc0000">
+    <i class="fa fa-chevron-up" aria-hidden="true" style="display: block"></i> Top</button>
+</div>

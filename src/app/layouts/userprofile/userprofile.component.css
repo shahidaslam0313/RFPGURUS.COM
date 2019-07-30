@@ -1,0 +1,19 @@
+/* .container-fluid {
+  display: table;
+  min-height: 100vh;
+  width: 100%;
+} */
+.content-router-outlet{
+  /* width: calc(100% - 260px); */
+  min-height: 400px;
+  vertical-align: top;
+  display: table-cell;
+  width: 100%;
+}
+.sidebar-outlet{
+  width: 260px;
+  display: table-cell;
+  vertical-align: top;
+  background: #fff;
+  border-right: 1px solid #ebebeb;
+}

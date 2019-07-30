@@ -1,0 +1,51 @@
+.search {
+  position: relative
+}
+
+.search input {
+  text-indent: 30px
+}
+
+.search .fa-search {
+  position: absolute;
+  top: 24px;
+  left: 7px;
+  font-size: 15px
+}
+
+.state-rfps-comp {
+  background: #ccc;
+  padding: 10px;
+  margin: 18px auto;
+  -webkit-box-shadow: 0 5px 8px #9c9c9c;
+          box-shadow: 0 5px 8px #9c9c9c
+}
+
+.sh-state-img {
+  max-width: 30px;
+  margin-right: 5px
+}
+#sh-state ul li {
+  font-size: 13px
+}
+
+.view-sub {
+  margin: 0
+}
+
+.view-sub a:hover {
+  color: #c00!important;
+  text-decoration: underline;
+  cursor: pointer
+}
+
+.view-sub a {
+  padding: 2px 20px!important;
+  line-height: 15px!important;
+  font-size: 14px
+}
+
+p.state-name:hover {
+  color: #c00;
+  text-decoration: underline
+}

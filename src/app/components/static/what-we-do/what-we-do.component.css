@@ -1,0 +1,24 @@
+.what-we-do {
+  background-image: url(../../../../assets/img/What-we-do.png);
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1
+}
+#what-is-rfp{
+  padding: 20px 0;
+}
+
+.sh-how-it-works h2,
+.sh-how-it-works p {
+    color: #fff!important
+}
+.sh-how-it-works p,
+.sh-ourExpertTeam,
+.sh-why-rfpgurus {
+    font-size: 20px;
+    line-height: 27px
+}
+.what-is-rfp {
+  background: #fff;
+  padding: 40px 0
+}

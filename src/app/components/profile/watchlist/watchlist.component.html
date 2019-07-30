@@ -1,0 +1,203 @@
+
+
+  <div class="">
+    <div class="container-fluid">
+
+      <div class="row margin-0">
+
+        <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 center-admin-form">
+
+          <div class="col-sm-6 page-title">
+            <span>Watch List</span>
+
+          </div>
+          <div class="col-sm-12 pd-20-0" *ngIf="wrfp">
+            <button class="btn btn-rose" onclick="topFunction()" (click)="All_deletewatchlist()"
+              title="Clear All Watch List" type="submit">Clear all Watch List</button>
+        </div>
+          <div class="col-sm-12 text-center mg-top-100" *ngIf="message == 'No Rfp in your Watch List' ">
+            <i class="fa fa-exclamation-triangle" style="font-size:35px;padding:15px 0 0;"></i>
+            <h3 class="text-center">Your Watch List is empty</h3>
+          </div>
+          <!-- <div class="col-sm-6" >
+                <span> Watchlist</span>
+              </div> -->
+          <div class="products-area sh-products-area">
+            <div *ngFor="let rfp of wrfp;let i=index" class="card">
+              <div class="row sh-del-watchlist">
+                <div class="col-sm-12 ">
+                  <div class="card-header card-header-text keyrfp"  data-background-color="purple">
+                    <a style="cursor:pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp?.wrfp.seoTitleUrl}"
+                      (click)="move()">
+                      <h4 class="card-title">{{ rfp?.wrfp.rfpkey}}</h4>
+                    </a>
+
+                  </div>
+                </div>
+
+                <span class="sh-del " data-target="#myModal2" data-toggle="modal"
+                  (click)="get(rfp?.wrfp.id,rfp?.wrfp.title)">
+                  <i class="fa fa-trash"></i>
+                </span>
+                <div class="card-content">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 plan-detail padding-0">
+                    <h3>
+                      <a style="cursor:pointer" [routerLink]="['/rfp']" [queryParams]="{query:rfp?.wrfp.seoTitleUrl}"
+                        (click)="move()"> {{ rfp?.wrfp.title}}</a>
+                    </h3>
+                    <h5 *ngIf="rfp?.wrfp.agency"><i class="fa fa-building-o"></i> Agency : <a class="cat-elips" [routerLink]="['/agency']"
+                        [queryParams]="{ agency: rfp?.wrfp.agency}"><span><b>{{rfp?.wrfp.agency}}</b></span></a></h5>
+                    <h5>
+                      <i class="fa fa-university"></i> Category :
+                      <a  class="cat-elips" [routerLink]="['/category']"
+                        [queryParams]="{ cat: rfp?.wrfp.new_category}"><span><b>{{ rfp?.wrfp.new_category}}</b></span></a>
+                    </h5>
+                    <h5>
+                      <i class="fa fa-fort-awesome"></i> State : <a [routerLink]="['/state']"
+                        [queryParams]="{ state: rfp?.wrfp.state}"><span><b> {{ rfp?.wrfp.state}}</b></span></a>
+                    </h5>
+
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 term top-margin-25">
+                    <!--<h4>Detail:</h4>-->
+                    <div class="table">
+                      <table class="table-normal">
+                        <thead>
+                          <tr>
+                            <td>
+                              <i class="glyphicon glyphicon-calendar"></i> Posted Date</td>
+                            <td>
+                              <i class="glyphicon glyphicon-calendar"></i> Submission Deadline</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td *ngIf="check(rfp?.wrfp.date_entered) == true">
+                              {{rfp?.wrfp.date_entered | date:'EEEE, MMM dd, y'}}</td>
+                            <td *ngIf="check(rfp?.wrfp.date_entered) == false"></td>
+                            <td *ngIf="check(rfp?.wrfp.due_date) == true">
+                              {{rfp?.wrfp.due_date | date:'EEEE, MMM dd, y'}}</td>
+                            <td *ngIf="check(rfp?.wrfp.due_date) == false"></td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-md-12">
+                      <ul class="list-normal">
+                        <li *ngIf="!subscribe; else pdf">
+                          <a routerLink="/pricing">
+                            <i class="fa fa-credit-card"></i>
+                            View Pricing/Package Details
+                          </a>
+                        </li>
+                        <ng-template #pdf>
+
+                          <li (click)="check_trial(rfp.wrfp.id,rfp?.wrfp.web_info)"
+                            *ngIf=" rfp?.wrfp.rfp_reference == 'Download File' ; else link ">
+                            <a>
+                              <i class="material-icons">insert_drive_file</i>
+                              View Documents
+                            </a>
+
+                          </li>
+                          <ng-template #link>
+                            <li (click)="check_trial(rfp.wrfp.id,rfp?.wrfp.web_info)">
+
+                              <a>
+                                <i class="material-icons">insert_drive_file</i>
+                                View Documents
+                              </a>
+                            </li>
+                          </ng-template>
+                        </ng-template>
+                      </ul>
+                    </div>
+                    <div class="col-md-12">
+                      <div *ngIf="!subscribe" class="col-md-2 col-sm-3 col-xs-7 term top-margin-25">
+                        <button routerLink="pricing" class="btn btn-rose sub" title="Subscribe Package">Subscribe Now
+                          
+                        </button>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <h5 class="view-more collapsed" data-toggle="collapse" attr.data-target="#View{{ rfp?.wrfp.id}}">
+                      Description
+                      <i class="material-icons">arrow_drop_down</i>
+                    </h5>
+                    <div attr.id="View{{ rfp?.wrfp.id}}" class="panel-details collapse">
+                      <div class="col-md-12" *ngIf=" rfp?.wrfp.descriptionTag == null">
+
+                        <!-- <div [innerHTML]=" rfp?.wrfp.deescription.split('\n').join('</p><p>')"></div> -->
+                        <div [innerHTML]=" rfp?.wrfp.deescription"></div>
+                      </div>
+                      <div class="col-md-12" *ngIf=" rfp?.wrfp.descriptionTag != null">
+
+                        <div [innerHTML]=" rfp?.wrfp.descriptionTag"></div>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-sm-12 pd-20-0" *ngIf="wrfp">
+                <button class="btn btn-rose" onclick="topFunction()" (click)="All_deletewatchlist()"
+                  title="Clear All Watch List" type="submit">Clear all Watch List</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footer-cmp class="inner"></app-footer-cmp> -->
+  <div id="myModal4" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times btn-dismiss"></i></button>
+
+        </div>
+        <div class="modal-body text-center padding-zero">
+          <h4>Are You Sure you want to Delete Watch List?</h4>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-buttons">
+            <button type="button" class="btn btn-rose" data-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-rose" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times btn-dismiss"></i></button>
+
+        </div>
+        <div class="modal-body text-center padding-zero">
+          <h4>Are You Sure you want to Remove this RFP From Watch List?</h4>
+        </div>
+        <div class="modal-footer">
+          <div class="modal-buttons">
+            <button type="button" class="btn btn-rose" data-dismiss="modal" (click)="deletewatchlist()">Yes</button>
+            <button type="button" class="btn btn-rose" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

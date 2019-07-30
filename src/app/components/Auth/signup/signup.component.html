@@ -1,0 +1,260 @@
+<!-- <app-loader></app-loader> -->
+<main id="main " class="signup-main" role="main">
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://storage.coursefrenzy.com/videos/RFPGurus_(1).mp4" type="video/mp4">
+    </video>
+  <div class="main-content ">
+    <div class="container">
+      <div class="col-sm-12 margin-t-17">
+        <div class="card">
+          <form [formGroup]="register" (ngSubmit)="onRegister(register.value)"
+            class="sh-signup-form-fix sh signup-form">
+
+            <div class="card-header card-header-icon" data-background-color="red">
+              <i class="fa fa-user"></i>
+              <h4 class="card-title">Signup with RFPGurus to immediately access the most comprehensive RFP Platform
+              </h4>
+            </div>
+            <div class="card-content">
+              <div class="row signup-form-row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <div class="form-group" [ngClass]="displayFieldCss(register, 'firstname')">
+                    <mat-form-field>
+                      <input class="sh-text-capt" matInput type="text"  (keydown.space)="$event.preventDefault()" minlength="2"  maxlength="64" id="firstname"
+                        formControlName="firstname" placeholder="First Name" required />
+                        <mat-error *ngIf="register.controls.firstname.errors?.maxlength">
+                          First Name must be between 2 to 64 characters
+                        </mat-error>
+                        <mat-error *ngIf="register.controls.firstname.errors?.minlength">
+                          First Name must be between 2 to 64 characters
+                        </mat-error>
+                        
+                      <mat-error *ngIf="register.controls.firstname.hasError('pattern')">
+                        Only Alphabets
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.firstname.value == ''">
+                        <strong>First name cannot be empty</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <div class="form-group label-floating " [ngClass]="displayFieldCss(register, 'lastname')">
+                    <mat-form-field>
+                      <input class="sh-text-capt" matInput type="text" (keydown.space)="$event.preventDefault()" minlength="2" maxlength="64" id="lastname"
+                        formControlName="lastname" placeholder="Last Name" required />
+                        <mat-error *ngIf="register.controls.lastname.errors?.minlength">
+                          Last Name must be between 2 to 64 characters
+                        </mat-error>
+                        <mat-error *ngIf="register.controls.lastname.errors?.maxlength">
+                          Last Name must be between 2 to 64 characters
+                        </mat-error>
+                      <mat-error *ngIf="register.controls.lastname.hasError('pattern')">
+                        Only Alphabets
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.lastname.value == ''">
+                        <strong>Last name cannot be empty</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
+                    <mat-form-field>
+                      <input matInput class="sh-text-capt" type="text" id="companyname" minlength="3"  maxlength="255" formControlName="companyname"
+                        placeholder="Company Name" required />
+                        <mat-error *ngIf="register.controls.companyname.errors?.minlength">
+                          <strong>Company Name must be between 3 and 64 characters </strong>
+                        </mat-error>
+                        <mat-error *ngIf="register.controls.companyname.errors?.maxlength">
+                          <strong>Company Name must be between 3 and 64 characters </strong>
+                        </mat-error>
+                      <mat-error *ngIf="register.controls.companyname.value == ''">
+                        <strong>Company name cannot be empty</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row signup-form-row sh-adress">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <div class="form-group text-area-placeholder label-floating zip-address" [ngClass]="displayFieldCss(register, 'address')">
+                    <mat-form-field>
+                      <textarea matInput type="text" id="address" class="resize-no"
+                        formControlName="address" placeholder="Address" required></textarea>
+                      <!-- <mat-error *ngIf="register.controls.address.value == ''">
+                        <strong>Address cannot be empty</strong>
+                      </mat-error> -->
+
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                  <div class="form-group label-floating " [ngClass]="displayFieldCss(register, 'zipcode')">
+                    <mat-form-field class="zipCodee text-area-placeholder">
+                      <input matInput type="number" maxlength="5" id="zipcode" min="0" 
+                        (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 formControlName="zipcode"
+                        placeholder="Zip Code" required oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==5) return false;" />
+                      <mat-error *ngIf="register.controls.zipcode.value == ''">
+                        <strong>Zipcode cannot be empty</strong>
+                      </mat-error>
+                      <mat-error class="border-right" *ngIf="register.controls.zipcode.hasError('pattern')">
+                        Only Numbers
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.zipcode.errors?.minlength">
+                        Only 5 Numbers.
+                      </mat-error>
+                    </mat-form-field>
+                    <p class="clr_red" *ngIf="invalid  && !vin_Data.city && !vin_Data.state && !vin_Data.country">
+                      Invalid Zipcode
+                    </p>
+                    <p *ngIf="!invalid  && vin_Data.city && vin_Data.state && vin_Data.country">
+                      
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                  <div class="form-group label-floating zip-address text-area-placeholder" [ngClass]="displayFieldCss(register, 'city')">
+                    <mat-form-field>
+                      <input matInput class="sh-text-capt" type="text" readonly id="city" formControlName="city" [(ngModel)]="vin_Data.city"
+                        value="{{vin_Data.city}}" placeholder="City" required />
+                      <!-- <mat-error *ngIf="register.controls.city.value == ''">
+                        <strong>City cannot be empty</strong>
+                      </mat-error> -->
+                    </mat-form-field>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="row signup-form-row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
+                    <mat-form-field>
+                      <input matInput class="text-uppercase" readonly type="text" id="state" [(ngModel)]="vin_Data.state" value="{{vin_Data.state}}"
+                        formControlName="state" placeholder="State" required />
+                      <!-- <mat-error *ngIf="register.controls.state.value == ''">
+                        <strong>State cannot be empty</strong>
+                      </mat-error> -->
+
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
+                    <mat-form-field>
+                      <input matInput class="sh-text-capt" readonly type="text" id="country" [(ngModel)]="vin_Data.country"
+                        value="{{vin_Data.country}}" formControlName="country" placeholder="Country" required />
+                      <!-- <mat-error *ngIf="register.controls.country.value == ''">
+                        <strong>Country cannot be empty</strong>
+                      </mat-error> -->
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  <div class="margin-t-17 form-group label-floating" [ngClass]="displayFieldCss(register, 'phone')">
+                    <int-phone-prefix type="number" [(ngModel)]="phone" class="phonee"  [defaultCountry]="'us'" formControlName="phone" placeholder="Phone No" required>
+                    </int-phone-prefix>
+                  </div>
+                </div>
+              </div>
+              <div class="row signup-form-row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'email')">
+                    <mat-form-field>
+                      <input matInput type="text" maxlength="255" id="email" (ngModelChange)="emailCheck(email1.value)"
+                        formControlName="email" #email1 placeholder="Email" required />
+                      <mat-error *ngIf="register.controls.email.value == ''">
+                        <strong>Email cannot be empty</strong>
+                      </mat-error>
+                      
+                      <mat-error *ngIf="register.controls.email.hasError('email')">
+                        Please enter a valid email address
+                      </mat-error>
+                    </mat-form-field>
+                    <p class="clr_red" *ngIf="emailexist && register.controls.email.value !=''">
+                      Email already exists
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'username')">
+                    <mat-form-field>
+                      <input [disabled]="emailexist" matInput type="text"   (keydown.space)="$event.preventDefault()"  maxlength="64" id="username" minlength="3"
+                        (ngModelChange)="usernameCheck(username1.value)" #username1 formControlName="username"
+                        placeholder="Username" required />
+                        <!-- <mat-error *ngIf="register.controls.username.maxlength">
+                          <strong> Username must be between 3 and 64 characters </strong>
+                        </mat-error> -->
+                        <mat-error  *ngIf="register.controls.username.errors?.minlength">
+                          <strong> Username must be between 3 and 64 characters </strong>
+                        </mat-error>
+                      <mat-error *ngIf="register.controls.username.value == ''">
+                        Username cannot be empty
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.username.hasError('pattern')">
+                        Invalid Username
+                      </mat-error>
+                    </mat-form-field>
+                    <p *ngIf="usernameexist && register.controls.username.value != ''" class="clr_red">
+                    Username already exists
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row signup-form-row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'password')">
+                    <mat-form-field>
+                      <input [disabled]="emailexist || usernameexist" maxlength="32" [type]="hide ? 'password' : 'text'"
+                      onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                        matInput type="password" id="password" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Password"
+                        required />
+                        <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                      <mat-error *ngIf="register.controls.password.value == ''">
+                        <strong>Password cannot be empty</strong>
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.password.hasError('pattern')">
+                        Password must be 8 characters long and must include 1 upper case, 1 lower case, 1 number and 1 special character
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group label-floating zip-address" [ngClass]="displayFieldCss(register, 'confirmPassword')">
+                    <mat-form-field>
+                      <input [disabled]="emailexist || usernameexist" [type]="hide1 ? 'password' : 'text'" matInput type="password" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" maxlength="32" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required />
+                      <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                      <mat-error
+                        *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value == ''">
+                        <strong>Password must match
+                        </strong>
+                      </mat-error>
+                     
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="form-footer reg col-sm-12 col-xs-12 col-lg-12 padding-0">
+                <div class="form-group col-sm-3 col-md-2 col-xs-12 padding-0 pd-left-0">
+                  <app-recapcha class="recaptcha-style"></app-recapcha>
+                </div>
+                <div class="form-group pd-left-30 text-left col-sm-9 col-md-10 col-xs-12 tb-text-center">
+                  <div class="checkbox padding-0 mg-0">
+                    <mat-slide-toggle (change)="changeCheck($event)"></mat-slide-toggle>
+                    I understand and agree that the use of this Website, Mobile Apps, AI and ALL other related Technology Platforms are subject to the<a class="vt-middle" [routerLink]="['/terms']" target="_blank">Terms of Use </a>and<a
+                        class="vt-middle" [routerLink]="['/privacy-policy']" target="_blank"> Privacy Policy.</a>
+                  </div>
+                  <button  title="Register" type="submit" class="btn btn-lrg btn-rose btn-fill btn-wd regester-btn"
+                    [disabled]="!register.valid || emailexist || usernameexist|| terms || disabledAgreement">Sign up</button>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

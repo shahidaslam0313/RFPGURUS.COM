@@ -1,0 +1,108 @@
+<div class="row margin-0">
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12" id="display_advance">
+ 
+    <div class="col-lg-11 col-md-12 sh-notification-div sh">
+      <div class="col-md-5 page-title">
+        <span>Notifications</span>
+      </div>
+      <div class="col-sm-12 text-center mg-top-100" *ngIf="total== '0'">
+        <i class="fa fa-exclamation-triangle"></i>
+        <h3 class="text-center">No Notifications</h3>
+      </div>
+      <div class="card"  *ngIf="notificate?.length != 0">
+        <div *ngFor="let item of notificate">
+          <div class="heart-main-div" *ngIf="item.read == false">
+            <div class="heart-contact sh-del-watchlist">
+              <a class="heart-heading"
+                *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
+               >
+                <p class=""  routerLink="/purchase-history">
+                {{item.type_of_notification}}
+                </p>
+                <span class="sh-del " (click)="deletenofication(item?.id)">
+                  <i class="fa fa-times"></i>
+                </span>
+                <div class="heart-detail ">
+
+                  <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
+                    {{item.description}}</h5>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                      </div>
+                </div>
+              </a>
+              <a class="heart-heading"
+                *ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
+               >
+                <p  [routerLink]="['/rfp']"[queryParams]="{query:item.target}">
+                {{item.type_of_notification}}
+                </p>
+                <span class="sh-del " (click)="deletenofication(item?.id)">
+                  <i class="fa fa-times"></i>
+                </span>
+                <div class="heart-detail ">
+                  
+                  <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
+                    {{item.description}}</h5>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                    </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="heart-main-div sh-notification-seen" *ngIf="item.read == true">
+            <div class="heart-contact sh-del-watchlist ">
+              <a class="heart-heading"
+                *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
+                >
+                <p routerLink="/purchase-history">
+                  {{item.type_of_notification}}
+                </p>
+                <span class="sh-del " (click)="deletenofication(item?.id)">
+                  <i class="fa fa-times"></i>
+                </span>
+                <div class="heart-detail ">
+                  <!-- (click)="single(item.target);updatenofication(item.id);move()" -->
+                  <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()">
+                    {{item.description}}</h5>
+                    <div class="text-right">
+                        {{item?.timecreated | date}}
+                      </div>
+                </div>
+              </a>
+              <a class="heart-heading"
+                *ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
+                >
+                 
+                <p  [routerLink]="['/rfp']"[queryParams]="{query:item.target}">
+                  {{item.type_of_notification}}
+                </p>
+                <span class="sh-del " (click)="deletenofication(item?.id)">
+                  <i class="fa fa-times"></i>
+                </span>
+                <div class="heart-detail  ">
+                  <!-- (click)="single(item.target);updatenofication(item?.id)" -->
+                  <h5 class="curser-pointer" (click)=" updatenofication(item.id);move()"> {{item.description}}</h5>
+                  <div class="text-right">
+                      {{item?.timecreated | date}}
+                    </div>
+                  <!-- <h5 > {{item.description}}</h5> -->
+                </div>
+              </a>
+              <div class="col-sm-12 text-center" *ngIf="notificate.length == '0'">
+                <i class="fa fa-exclamation-triangle"></i>
+                <h3 class="text-center">No Notifications Found</h3>
+              </div>
+            </div>
+          </div>
+        </div>  
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pd-top-20px" *ngIf="notificate">
+        <button class="btn btn-rose btn-fill btn-wd add-payment" (click)="deleteallnotification()">Clear All
+          Notifications </button>
+      </div>
+    </div>
+
+  </div>
+ 
+</div>

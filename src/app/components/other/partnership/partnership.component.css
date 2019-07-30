@@ -1,0 +1,42 @@
+
+.partnership .form-control,
+.partnership .form-group .form-control,
+.partnership label {
+    font-weight: 400!important
+}
+
+.partnership textarea.form-control {
+    height: auto!important
+}
+
+.partnership label {
+    font-size: 22px!important;
+    color: #fff!important
+}
+.partnership {
+    background-image: url(../../../../assets/img/partnership.jpg);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: #fff;
+    padding-bottom:20px;
+}
+.become-a {
+  color: #fff;
+  font-size: 32px
+}
+.elevate {
+  font-size: 20px;
+  margin: 0 0 12px
+}
+.form-control, .form-group .form-control {
+  font-size: 20px;
+  height: 40px;
+}
+.form-group {
+  margin-bottom: 5px;
+}
+.error-mat{
+  margin-top: -16px;
+  font-size: 12px;
+  color: red;
+}

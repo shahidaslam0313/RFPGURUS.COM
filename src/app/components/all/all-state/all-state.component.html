@@ -1,0 +1,62 @@
+<!-- <app-loader></app-loader> -->
+
+<div id="wrapper" [ngClass]="{'search-active': mainSearch === 1}">
+  <div class="search-outer" [ngClass]="{'active': mainSearch === 1}">
+    <i (click)="focusInput()">focus</i>
+    <div class="container">
+      <div class="search-holder">
+        <input type="search" name=query [(ngModel)]="query" #qure1 (ngModelChange)="filter(qure1.value)"
+          placeholder="Search RFPs">
+        <i class="fa fa-close" id="iconClose" (click)="closeSearch()"></i>
+      </div>
+      <div class="search-results" *ngIf="Rfp">
+        <ul class="list-normal">
+          <li *ngIf="item==0">
+            <p>No results found. Please use keywords.</p>
+          </li>
+          <span *ngFor="let item of Rfp">
+            <li *ngIf="item.state != '' ">
+              <a class="curser-pointer" [routerLink]="['/state']" [queryParams]="{ state: item.state}"> <i
+                  class="material-icons">arrow_forward</i>
+                {{item.state}} </a>
+            </li>
+          </span>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-content">
+  <div class="container">
+    <div class="row state-rfps-comp">
+      <app-map [cartonStatus]="true" async></app-map>
+    </div>
+    <div class="row">
+      <div class="all-cats">
+        <div class="head col-sm-12">
+          <div class="row">
+            <div class="col-sm-8">
+              <h3><i class="fa fa-list-alt" aria-hidden="true"></i>All States</h3>
+            </div>
+            <div class="col-sm-4 text-right">
+              <input type="text" name=query [(ngModel)]="statesearch" #qure1 (keydown)="filter(qure1.value)"
+                [ngModelOptions]="{standalone: true}" placeholder="Search States" class="search-allstates">
+              <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 text-center" *ngIf="(state | filter:statesearch).length=='0'">
+          <i class="fa fa-exclamation-triangle"></i>
+          <h3 class="text-center">No Record Found</h3>
+        </div>
+        <div *ngFor="let rfpstate of state | filter:statesearch" class="col-sm-4 col-lg-4 col-md-4 col-xs-6 col">
+          <a class="curser-pointer" [routerLink]="['/state']" [queryParams]="{ state: rfpstate.state}">
+            <img class="sh-state-img" src="https://storage.rfpgurus.com/bplrfpgurus/{{rfpstate.icon_image}}" alt="img">
+            <p class="state-name">{{rfpstate.state}}</p>
+          </a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>

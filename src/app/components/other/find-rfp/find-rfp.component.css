@@ -1,0 +1,35 @@
+:not(i):not(.fa):not(.fas):not(.far):not(.mat-form-field-suffix):not(.mat-icon):not(.material-icons){font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important}.mat-form-field-empty.mat-form-field-placeholder,.sh-n-table .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,mat-form-field.mat-form-field{font-size:16px}.category-name{color:#000}.category-name:hover{color:#c00}.example-container {
+  top: 20px;
+  bottom: 60px;
+  left: 30px;
+  right: 0
+}
+.block-ellipsis {
+    max-width: 100%;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis
+}
+.block-ellipsis {
+  display: block;
+  display: -webkit-box;
+  max-height: 70px;
+  line-height: 25px;
+  -webkit-line-clamp: 3
+}
+.cat-elips{
+  word-break: break-all;
+}
+@media (min-width:1025px) and (max-width:1280px) {
+  .sh-n-table table tbody tr td {
+    font-size: 12px;
+    line-height: 14px
+}
+  .sh-n-table table thead tr th {
+      font-size: 15px
+  }
+  .main-heading {
+    margin: 0
+}
+}

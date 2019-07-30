@@ -1,0 +1,178 @@
+/**********************Start RFPGurus Portfolio  ***************************/
+.pw-solutions ul {
+    letter-spacing: -10px;
+    margin: 0 -10px
+}
+
+.home.pw-solutions ul li {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: 0;
+    margin: 0 0 20px;
+    padding: 0 10px
+}
+
+.pw-solutions ul li .holder.icons {
+    padding: 25px 8px 8px
+}
+
+.pw-solutions ul li .holder:hover {
+    -webkit-box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
+    box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05)
+}
+
+.pw-solutions ul li .holder:hover i {
+    -webkit-animation: popupDown .7s;
+    animation: popupDown .7s
+}
+
+
+.pw-solutions ul li .holder.red i {
+    color: #c62828;
+    border-color: #c62828
+}
+
+.pw-solutions ul li .holder.red .btn {
+    background: #c62828
+}
+
+.pw-solutions ul li .holder.purple i {
+    color: #4527a0;
+    border-color: #4527a0
+}
+
+.pw-solutions ul li .holder.purple .btn {
+    background: #4527a0
+}
+
+.pw-solutions ul li .holder.pink i {
+    color: #ad1457;
+    border-color: #ad1457
+}
+
+.pw-solutions ul li .holder.pink .btn {
+    background: #ad1457
+}
+
+.pw-solutions ul li .holder.green i {
+    color: #2e7d32;
+    border-color: #2e7d32
+}
+
+.pw-solutions ul li .holder.green .btn {
+    background: #2e7d32
+}
+
+.pw-solutions ul li h3 {
+    text-align: center;
+    margin: 0
+}
+
+.pw-solutions ul li .img-holder {
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center
+}
+
+.pw-solutions ul li .img-holder .material-icons {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    line-height: 100px;
+    border: 1px solid #dc143c;
+    border-radius: 100%;
+    text-align: center;
+    margin: 0 0 15px
+}
+
+.pw-solutions ul li .txt-holder {
+    padding: 10px;
+    text-align: center;
+}
+
+.pw-solutions ul li .btn-holder {
+    text-align: center
+}
+
+.pw-solutions ul li a {
+    display: block
+}
+
+.pw-solutions ul li a img {
+    max-width: 100%
+}
+
+.pw-solutions ul li {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: 0;
+    margin: 0 0 20px;
+    padding: 0 10px
+}
+
+
+.pw-solutions ul li {
+    width: 33%
+}
+
+.pw-solutions ul li .holder {
+    height: 100%;
+    -webkit-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    padding: 8px;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+    background: #fff;
+    border-radius: 6px
+}
+
+.fourcolumns .holder {
+    min-height: 500px;
+}
+.pw-solutions ul li .holder{
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3)
+}
+.pw-solutions {
+  padding: 10px!important
+}
+.sh-how-it-works {
+  background-image: url(../../../../assets/img/Why-RFP-Gurus.png);
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.threecolumns {
+  width: 100%;
+  letter-spacing: -10px
+}
+
+.threecolumns .col {
+  width: 33.33%
+}
+
+.threecolumns .col img {
+  width: 100%;
+  height: auto
+}
+.threecolumns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+.txt-holder {
+  font-family: ' Roboto', sans-serif
+}
+
+/**********************End RFPGurus Portfolio  ***************************/

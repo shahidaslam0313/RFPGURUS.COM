@@ -1,0 +1,230 @@
+<div class="sidebar-user sh-sidebar-user ">
+
+    <nav>
+        <div class="card-content sh-card-content" >
+            <form (ngSubmit)="onSubmit()" novalidate class="sh-sidebar-more-condense sh-date ">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h3 style="text-align: center" class="search-filters-hd">Search Filters</h3>
+                        <button type="submit" class="btn btn-primary btn-rose btn-lg sh-btn-fixed sh-refresh-res"
+                            title="Refresh Results"
+                            >Refresh Results</button>
+                            <button class="btn btn-primary btn-rose btn-lg sh-btn-fixed sh-refresh-res" (click)="formclear(f)">Clear</button>
+                    </div>
+                    <div class="col-sm-12" style="margin-top: -10px">
+
+                        <mat-form-field class="seclect-label">
+                            <mat-select [(ngModel)]="status" placeholder="Status" name="status" (ngModelChange)="onSubmit()">
+                                <mat-option *ngFor="let food of foods" [value]="food.value">
+                                    {{ food.viewValue }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12">
+                        <mat-form-field class="sh-sidebar-date">
+                            <input matInput placeholder="From Posted Date" (click)="picker.open()" name="enterdate"
+                                (focus)="picker.open()"  mask="[00]\[000]" [matDatepicker]="picker" [(ngModel)]="enterdate"
+                                (ngModelChange)="onSubmit()">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker class="sh-date-top-fix" #picker></mat-datepicker>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <mat-form-field class="example-full-width mat-size sh-sidebar-date">
+                            <input placeholder="To Posted Date" matInput (click)="picker2.open()" name="duedate"
+                                (focus)="picker2.open()" [matDatepicker]="picker2" [(ngModel)]="duedate"
+                                (ngModelChange)="onSubmit()">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2 class="sh-date-top-fix"></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12">
+                        <mat-form-field class="sh-sidebar-date">
+                            <input matInput [matDatepicker]="startPicker3" (focus)="startPicker3.open()"
+                                name="submission_from" [(ngModel)]="submission_from" placeholder="From Submission Date"
+                                (ngModelChange)="onSubmit()" />
+                            <mat-datepicker-toggle matSuffix [for]="startPicker3"></mat-datepicker-toggle>
+                            <mat-datepicker #startPicker3 color="warn"></mat-datepicker>
+
+                        </mat-form-field>
+                     
+                    </div>
+                    <div class="col-sm-12">
+
+                        <mat-form-field class="example-full-width mat-size sh-sidebar-date">
+                            <input matInput [matDatepicker]="startPicker4" (focus)="startPicker4.open()"
+                                name="submission_to" [(ngModel)]="submission_to" placeholder="To Submission Date"
+                                (ngModelChange)="onSubmit()" />
+                            <mat-datepicker-toggle matSuffix [for]="startPicker4"></mat-datepicker-toggle>
+                            <mat-datepicker #startPicker4 color="warn"></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="col-sm-12">
+                        <mat-form-field>
+                            <mat-select placeholder="Search By State" [(ngModel)]="states" name="states"
+                                (ngModelChange)="select_state()">
+                                <input class="inp" type="text" [(ngModel)]="statsearch"
+                                    [ngModelOptions]="{standalone: true}" class="search-allstates"
+                                    placeholder="Search By State">
+                                <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                                <mat-option value='all'>Select All</mat-option>
+                                <mat-option class="elips-mat-opt" *ngFor="let item of state |filter:statsearch"
+                                    [value]="item.state" title="{{item.state | titlecase}}">{{item.state | titlecase}}
+                                </mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+                        <!-- <mat-form-field class="seclect-label">
+                            <mat-select placeholder="Search By State" [(ngModel)]="states" name="states"
+                                (ngModelChange)="select_state()">
+                                <input class="inp" type="text" [(ngModel)]="statsearch"
+                                    [ngModelOptions]="{standalone: false}" class="search-allstates"
+                                    placeholder="Search By State">
+                                <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                                <mat-option value='all'>Select All</mat-option>
+                                <mat-option class="elips-mat-opt" *ngFor="let item of state |filter:statsearch"
+                                    [value]="item.state" title="{{item.state | titlecase}}">{{item.state | titlecase}}
+                                </mat-option>
+
+                            </mat-select>
+                        </mat-form-field> -->
+                    </div>
+                    <div class="col-sm-12">
+                        <mat-form-field class="seclect-label">
+                            <mat-select placeholder="Search By Agency" [(ngModel)]="agencies" name="agency"
+                                (ngModelChange)="select_agency()">
+                                <input class="inp" type="text" [(ngModel)]="agensearch"
+                                    [ngModelOptions]="{standalone: true}" placeholder="Search By Agency"
+                                    class="search-allstates">
+                                <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                                <mat-option value='all'>Select All</mat-option>
+                                <mat-option class="elips-mat-opt" *ngFor="let item of agency| filter:agensearch"
+                                    [value]="item.agencies" title="{{item.agencies | titlecase}}">
+                                    {{item.agencies | titlecase}}</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12">
+                        <mat-form-field class="seclect-label">
+                            <mat-select placeholder="Search By Category" [(ngModel)]=cates name="cat" #category
+                                (ngModelChange)="select_category()">
+                                <input class="inp" type="text" [(ngModel)]="catsearch"
+                                    [ngModelOptions]="{standalone: true}" placeholder="Search By Category"
+                                    class="search-allstates of-sidebar">
+                                <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                                <mat-option value='all'>Select All</mat-option>
+                                <mat-option class="elips-mat-opt" *ngFor="let catitem of cat| filter:catsearch"
+                                    [value]="catitem.category_name" title="{{catitem.category_name | titlecase}}">
+                                    {{catitem.category_name | titlecase}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12">
+                        <mat-form-field class="sidebar-subcat seclect-label">
+                            <mat-select placeholder="Search By Sub Category" [(ngModel)]=subcates name="subcat"
+                                [disabled]="!cates" (ngModelChange)="select_category()">
+                                <input class="inp" type="text" [(ngModel)]="subcatsearch"
+                                    [ngModelOptions]="{standalone: true}" placeholder="Search By Sub Category"
+                                    class="search-allstates">
+                                <i class="fa fa-search  s-icon-all-states" area-hidden="true"></i>
+                                <mat-option value='all'>Select All</mat-option>
+                                <mat-option class="elips-mat-opt"
+                                    *ngFor="let catitem of sub_categories| filter:subcatsearch"
+                                    [value]="catitem.sub_category" title="{{catitem.sub_category | titlecase}}">
+                                    {{catitem.sub_category | titlecase}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <ul class="list-category" style="margin-top: -10px">
+
+            <li>
+                <h5 class="mg-top-10px">
+                    <span>States</span>
+                </h5>
+            </li>
+            <li>
+            
+                <a class="abc" (click)="formclear(f)" [routerLink]="['/state']"
+                    [queryParams]="{ state: 'California'}">California</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
+                    [queryParams]="{ state: 'Florida'}">Florida</a>
+            </li>
+            <li>
+                <a class="abc" (click)="formclear(f)" [routerLink]="['/state']"
+                    [queryParams]="{ state: 'Georgia'}">Georgia</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
+                    [queryParams]="{ state: 'Illinois'}">Illinois</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
+                    [queryParams]="{ state: 'Massachusetts'}">Massachusetts</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
+                    [queryParams]="{ state: 'New Jersey'}">New
+                    Jersey</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']" [queryParams]="{ state: 'New York'}">
+                    New York</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
+                    [queryParams]="{ state: 'North Carolina'}">North
+                    Carolina</a>
+            </li>
+            <li>
+                <a class="abc" (click)=" formclear(f)" [routerLink]="['/state']"
+                    [queryParams]="{ state: 'Texas'}">Texas</a>
+            </li>
+            <li>
+                <button [routerLink]="['/all-states']" class="btn btn-primary btn-rose sh-btn-fixed"
+                    title="View All States">View
+                    All States</button>
+            </li>
+            <li>
+                <h5 class="cat-sidebar-heading">
+                    <span>Categories</span>
+                </h5>
+            </li>
+            <li *ngFor="let rfpcat of cat_subcat.slice(0, 5); let i = index">
+                <a class="abc" (click)=" formclear()"  class="cat-elips" [routerLink]="['/category']"
+                    [queryParams]="{ cat: rfpcat?.cat?.category_name}">
+                    {{rfpcat?.cat?.category_name | titlecase}}
+                </a>
+                <i class="caret pull-right view-more state collapsed" data-toggle="collapse"
+                    attr.data-target="#View{{i}}" *ngIf="rfpcat.subcat !=''"></i>
+                <div>
+                    <div attr.id="View{{i}}" class="panel-details side collapse">
+                        <ul>
+                            <li *ngFor="let catitem of rfpcat.subcat">
+                                <a class="sub-cat-name" class="curser-pointer" [routerLink]="['/subcategory']"
+                                    [queryParams]="{ subcat: catitem.subcategory_name}">
+                                    {{catitem.subcategory_name | titlecase}}
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </li>
+
+            <button [routerLink]="['/all-category']" class="btn btn-primary btn-rose sh-btn-fixed"
+                title="View All Categories">View
+                All Categories</button>
+
+        </ul>
+    </nav>
+</div>

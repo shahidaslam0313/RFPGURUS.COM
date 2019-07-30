@@ -1,0 +1,46 @@
+.bottom-lists.sh {
+    padding: 0 !important
+}
+
+.bottom-lists.sh ul {
+    list-style: inside;
+}
+
+.bottom-lists ul li {
+    list-style: none;
+    margin: 0;
+    padding: 5px 10px
+}
+
+.bottom-lists ul li a {
+    color: #004283;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 500
+}
+
+.bottom-lists ul li:hover a {
+    color: #f80000
+}
+
+.bottom-lists ul li:hover {
+    -webkit-box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
+    box-shadow: 0 5px 25px 0 rgba(64, 64, 64, .3);
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
+    cursor: pointer;
+    background-color: #fff
+}
+
+.bottom-lists ul li img {
+    height: 100%;
+    width: 20px;
+    margin-right: 5px
+}
+
+.s_i_list {
+    background-color: #f8f8f8;
+    padding: 20px
+}

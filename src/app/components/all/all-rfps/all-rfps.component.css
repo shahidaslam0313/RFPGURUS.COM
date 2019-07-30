@@ -1,0 +1,49 @@
+
+.main-content.custom {
+  margin-top: -10px!important;
+  padding: 15px 0
+}
+
+.sidebarToggle {
+  display: none;
+  width: 130px;
+  margin: 0;
+  top: 0;
+  left: 15px;
+  z-index: 9
+}
+.sidebar.custom {
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+  background: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-animation: animateleft .4s;
+  animation: animateleft .4s
+}
+.sidebar-close-btn button {
+  background: #fff;
+  font-size: 26px;
+  padding: 5;
+  height: 30px;
+  margin: 0;
+  width: 30px;
+  border-radius: 0!important;
+  color: #c00;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.sidebar-close-btn button:hover{
+  background: #fff;
+}
+.mg-top-5{
+margin-top: 5px;
+}
+@media (max-width:991px) {
+  .main-content.custom {
+    margin: 0 !important;
+  }
+  .page-title {
+    margin: 0;
+  }
+}

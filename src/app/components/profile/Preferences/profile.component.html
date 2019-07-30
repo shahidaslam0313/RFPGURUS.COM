@@ -1,0 +1,199 @@
+<div class="row margin-0">    
+    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 center-admin-form" id="display_advance">
+        <div class="card">
+            <form [formGroup]="register" class=" edit-profile sh-pref-selectlist">
+                <div class="card-header card-header-icon" data-background-color="rose">
+                    <i class="fa fa-newspaper-o"></i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Bid Alert Notification Preferences</h4>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <span>Please select the RFP Preferences for which you would like to receive RFP
+                                        (Bids
+                                        Alerts)</span>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="rfp-cat">
+                                        <div class="form-group label-floating">
+                                            <div class="col-md-4">
+                                                <mat-form-field>
+                                                    <mat-select placeholder="Categories" [formControl]="catess"
+                                                        [(ngModel)]="tempUserPreference" [ngModelOptions]="{standalone: true}"  multiple 
+                                                        (ngModelChange)="valueSelected(catess.value, $event)">
+                                                        <mat-option class="font-18px" *ngFor="let food of cat"
+                                                            [value]="food.category_name">{{food.category_name}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <mat-form-field class="example-chip-list"
+                                                    *ngIf="tempUserPreference !=null">
+                                                    <mat-chip-list #chipList>
+                                                        <mat-chip *ngFor="let list of tempUserPreference; let i=index"
+                                                            [selectable]="selectable" [removable]="removable"
+                                                            (removed)="remove(list, $event)">
+                                                            {{list}}
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                <i class="fa fa-times"></i>
+                                                            </mat-icon>
+                                                        </mat-chip>
+                                                        <input [matChipInputFor]="chipList"
+                                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                            [matChipInputAddOnBlur]="addOnBlur">
+                                                    </mat-chip-list>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <mat-form-field>
+                                                    <mat-select placeholder="States" [(ngModel)]="tempstatePreference"
+                                                    [ngModelOptions]="{standalone: true}"   [formControl]="states" multiple
+                                                        (ngModelChange)="valueSelected1(states.value, $event)">
+                                                        <mat-option class="font-18px" *ngFor="let food of state"
+                                                            [value]="food.state">{{food.state}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <mat-form-field class="example-chip-list"
+                                                    *ngIf="tempstatePreference !=null">
+                                                    <mat-chip-list #chipList>
+                                                        <mat-chip *ngFor="let list of tempstatePreference; let i=index"
+                                                            [selectable]="selectable" [removable]="removable"
+                                                            (removed)="remove1(list, $event)">
+                                                            {{list}}
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                    <i class="fa fa-times"></i>
+                                                            </mat-icon>
+                                                        </mat-chip>
+                                                        <input [matChipInputFor]="chipList"
+                                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                            [matChipInputAddOnBlur]="addOnBlur">
+                                                    </mat-chip-list>
+                                                </mat-form-field>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <mat-form-field>
+                                                    <mat-select placeholder="Agencies"
+                                                        [(ngModel)]="tempagencyPreference"  [ngModelOptions]="{standalone: true}"  [formControl]="agencies"
+                                                        multiple (ngModelChange)="valueSelected4(agencies.value, $event)">
+                                                        <mat-option class="font-18px" *ngFor="let food of agency"
+                                                            [value]="food.agency">{{food.agency}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <mat-form-field class="example-chip-list"
+                                                    *ngIf="tempagencyPreference !=null">
+                                                    <mat-chip-list #chipList>
+                                                        <mat-chip *ngFor="let list of tempagencyPreference; let i=index"
+                                                            [selectable]="selectable" [removable]="removable"
+                                                            (removed)="remove4(list, $event)">
+                                                            {{list}}
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                    <i class="fa fa-times"></i>
+                                                            </mat-icon>
+                                                        </mat-chip>
+                                                        <input [matChipInputFor]="chipList"
+                                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                            [matChipInputAddOnBlur]="addOnBlur">
+                                                    </mat-chip-list>
+                                                </mat-form-field>
+
+
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <mat-form-field>
+                                                    <mat-select placeholder="Counties"
+                                                        [(ngModel)]="tempcountyPreference"  [ngModelOptions]="{standalone: true}"  [formControl]="counties"
+                                                        multiple (ngModelChange)="valueSelected3(counties.value, $event)">
+                                                        <mat-option class="font-18px" *ngFor="let food of county"
+                                                            [value]="food.city_or_county">{{food.city_or_county}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <mat-form-field class="example-chip-list"
+                                                    *ngIf="tempcountyPreference !=null">
+                                                    <mat-chip-list #chipList>
+                                                        <mat-chip *ngFor="let list of tempcountyPreference; let i=index"
+                                                            [selectable]="selectable" [removable]="removable"
+                                                            (removed)="remove3(list, $event)">
+                                                            {{list}}
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                    <i class="fa fa-times"></i>
+                                                            </mat-icon>
+                                                        </mat-chip>
+                                                        <input [matChipInputFor]="chipList"
+                                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                            [matChipInputAddOnBlur]="addOnBlur">
+                                                    </mat-chip-list>
+                                                </mat-form-field>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <mat-form-field>
+                                                    <mat-select placeholder="Cities" [(ngModel)]="tempcityPreference"
+                                                        [formControl]="cities" multiple   [ngModelOptions]="{standalone: true}" 
+                                                        (ngModelChange)="valueSelected2(cities.value, $event)">
+                                                        <mat-option class="font-18px" *ngFor="let food of city"
+                                                            [value]="food.city">{{food.city}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <mat-form-field class="example-chip-list"
+                                                    *ngIf="tempcityPreference !=null">
+                                                    <mat-chip-list #chipList>
+                                                        <mat-chip *ngFor="let list of tempcityPreference; let i=index"
+                                                            [selectable]="selectable" [removable]="removable"
+                                                            (removed)="remove2(list, $event)">
+                                                            {{list}}
+                                                            <mat-icon matChipRemove *ngIf="removable">
+                                                                    <i class="fa fa-times"></i>
+                                                            </mat-icon>
+                                                        </mat-chip>
+                                                        <input [matChipInputFor]="chipList"
+                                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                            [matChipInputAddOnBlur]="addOnBlur">
+                                                    </mat-chip-list>
+                                                </mat-form-field>
+
+                                            </div>
+
+                                        </div>
+                                   
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-footer row">
+                    <div class="checkbox col-md-4 col-sm-5 margin-0">
+                        <!-- <label>
+                            <input type="checkbox" [(ngModel)]="personal.newsletter" value="{{personal.newsletter}}"
+                                name="newsletter" formControlName="newsletter"> Subscribe to Newsletter
+                        </label> -->
+                   <mat-slide-toggle type="checkbox" [(ngModel)]="personal.newsletter" value="{{personal.newsletter}}"
+                   name="newsletter" formControlName="newsletter">Subscribe to Newsletter</mat-slide-toggle>
+               
+                    </div>
+                  
+                    <div class="form-group text-left col-md-8 col-sm-6 mg-0">
+                        <button type="submit" class="btn s-pref-update-btn btn-lrg btn-rose btn-fill btn-wd"
+                            (click)="onRegister()">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,359 @@
+<div class="row margin-0">
+    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 center-admin-form" id="display_advance">
+        <div *ngIf="!pkgsub" class=" history-heading">
+            <div class="page-title" *ngIf="result">
+                <span>Subscription</span>
+            </div>
+            
+
+            <div class="page-title" *ngIf="trial">
+                <span>Trial Subscription</span>
+            </div>
+
+
+            <table class="table table-striped history-table" *ngIf="trial">
+                <thead>
+                    <tr>
+                        <th>Subscription Name</th>
+                        <th>Price</th>
+                        <th>Start Date</th>
+                        <th>Expiry Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td *ngIf="trial.package_detail.duration == 'M' ">Monthly Plan</td>
+                        <td *ngIf="trial.package_detail.duration  == 'Q'">Quater PLAN</td>
+                        <td *ngIf="trial.package_detail.duration == 'S'"> SixMonths PLAN</td>
+                        <td *ngIf="trial.package_detail.duration  == 'Y'"> Yearly PLAN</td>
+                        <td><span>$</span>{{trial.package_detail.pkg_price}} </td>
+                        <td>{{trial.timecreated | date:'EEEE, MMM dd, y'}}</td>
+                        <td>{{trial.endtime | date:'EEEE, MMM dd, y'}}</td>
+                        <td class="active-rfp"> Active </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-striped history-table" *ngIf="result">
+                <thead>
+                    <tr>
+                        <th>Subscription Name</th>
+                        <th>Price</th>
+                        <th>Start Date</th>
+                        <th>Expiry Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td *ngIf="pkgList.duration == 'M' ">Monthly Plan</td>
+                        <td *ngIf="pkgList.duration == 'Q'">Quater PLAN</td>
+                        <td *ngIf="pkgList.duration== 'S'"> SixMonths PLAN</td>
+                        <td *ngIf="pkgList.duration == 'Y'"> Yearly PLAN</td>
+                        <td><span>$</span>{{pkgList.pkg_price}} </td>
+                        <td>{{record.pay_date | date:'EEEE, MMM dd, y'}}</td>
+                        <td>{{record.end_date | date:'EEEE, MMM dd, y'}}</td>
+                        <td *ngIf="record.is_paid == true">
+                        <p class="active-rfp"> Active </p>
+                           </td>
+                        <td *ngIf="record.is_paid == false"><button
+                                (click)=" prv_stepdetail( pkgList.pkg_type,pkgList.duration)" title="Subscribe Package"
+                                class="btn btn-primary">Subscribe Now <i class="fa fa-thumbtack"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-rose pull-right " *ngIf="trial" (click)="deactive()">
+                Deactivate Trail
+            </button>
+            <button class="btn btn-rose pull-right " data-target="#myModal5" data-toggle="modal" *ngIf="result"
+                (click)="get(record.pay_date,record.end_date)">
+                Generate Invoice
+            </button>
+            <div id="myModal5" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div id="invoice" id="contentToConvert">
+
+                            <div class="toolbar hidden-print">
+                            </div>
+                            <div class="invoice overflow-auto">
+                                <div>
+                                    <header>
+                                        <div class="row">
+                                            <div class="col col-md-6">
+                                                <a target="_blank">
+                                                    <img class="img-responsive "
+                                                        src="../../assets/img/RFPGurus-Home-Screen-Logo.png"
+                                                        alt="RFPGurus" />
+                                                </a>
+                                            </div>
+                                            <div class="col col-md-6 company-details">
+                                                <h2>RFPGurus</h2>
+                                                <h5 style="line-height: 30px;">14681 Midway Rd Ste 200 Addison TX 75001
+                                                </h5>
+                                                <h5 class="phone-contact">
+                                                    <i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>Email: </span>
+                                                    contact AT RFPGurus DOT com<br>
+                                                    <i class="fa fa-phone"></i>&nbsp;&nbsp; <span>Voice: </span>
+                                                    +1-214-302-7330
+                                                   
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <main>
+                                        <div class="row contacts">
+                                            <div class="col col-md-6 invoice-to" *ngIf="result">
+                                                <div class="text-gray-light"> Invoice To:</div>
+                                                <h2 class="to">{{userdetail.user.username}}</h2>
+                                                <div class="address">{{userdetail.address}}</div>
+                                                <!-- <div class="email"><a href="mailto:john@example.com">john@example.com</a></div> -->
+                                            </div>
+                                            <div class="col col-md-6 invoice-details">
+                                                <!-- <h1 class="invoice-id">INVOICE 3-2-1</h1> -->
+                                                <div class="date">Start Date : {{pay | date:'EEEE, MMM dd, y'}}</div>
+                                                <div class="date">Expiry Date: {{end | date:'EEEE, MMM dd, y'}}</div>
+                                            </div>
+                                        </div>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Subscription Name</th>
+                                                    <th>Price</th>
+                                                    <th>Start Date</th>
+                                                    <th>Expiry Date</th>
+                                                    <!-- <th>Status</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngIf="result">
+                                                    <td *ngIf="pkgList.duration == 'M' ">Monthly Plan</td>
+                                                    <td *ngIf="pkgList.duration == 'Q'">Quater PLAN</td>
+                                                    <td *ngIf="pkgList.duration== 'S'"> SixMonths PLAN</td>
+                                                    <td *ngIf="pkgList.duration == 'Y'"> Yearly PLAN</td>
+                                                    <td><span>$</span>{{pkgList.pkg_price}} </td>
+                                                    <td>{{pay | date:'EEEE, MMM dd, y'}}</td>
+                                                    <td>{{end | date:'EEEE, MMM dd, y'}}</td>
+                                                    <!-- <td *ngIf="record.is_paid == true"><button style="cursor:text" class="btn btn-success" title="Active">Active
+                                                                            </button></td> -->
+                                                    <!-- <td *ngIf="record.is_paid == false"><button (click)=" prv_stepdetail( pkgList.pkg_type,pkgList.duration)"
+                                                                                title="Subscribe Package" class="btn btn-primary">Subscribe Now <i class="fa fa-thumbtack"></i></button></td> -->
+                                                </tr>
+
+
+
+                                            </tbody>
+
+                                        </table>
+                                        <div class="thanks">Thank you for Subscription with RFPGurus!</div>
+                                        <div class="notices">
+                                            <div>NOTICE:</div>
+                                            <div class="notice">If you opted for Auto-Renewal for your subscription
+                                                then, your plan will automatically be renewed at the end of your billing
+                                                cycle.
+                                            </div>
+                                        </div>
+                                    </main>
+                                    <footer>
+                                        Invoice was created on a computer and is valid without the signature and seal.
+                                    </footer>
+                                </div>
+                                <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <div class="modal-buttons">
+                                <!-- <div>
+                                    <input type="button" value="CPTURE" (click)="captureScreen()" />
+                                </div> -->
+                                <button type="button" class="btn btn-rose" value="CPTURE" (click)="captureScreen()"
+                                    data-dismiss="modal"> Download <i class="fa fa-download" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-rose" data-dismiss="modal"> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <section *ngIf="nofound" class="section pricing2-section" style="background:#fafafa;">
+
+                <div class="row">
+
+                    <div class="panel-heading sh">
+                        <h4 class="panel-title">
+                                Select a Subscription Plan
+                        </h4>
+                    </div>
+                    <!-- <p style="font-weight: 500;">Unbeatable Pricing. One-Package-Includes-All Features & RFPs Nationwide.
+                                    Subscribe to Monthly or Yearly democratized
+                                    pricing packages. With a transparent and democratized pricing model, RFPGurus is the most
+                                    affordable
+                                    and comprehensive sources of Government Contracts, Bids, RFPs, RFIs, RFQs, RFBs and RFTs from over
+                                    thousands
+                                    and thousands of Government Agencies, States, Cities, Municipalities, Counties, Special District
+                                    andx
+                                    other Agencies.</p> -->
+
+                    <div class="col-md-offset-1 col-lg-offset-1 col-lg-5 col-md-4 col-sm-5 col-xs-12 pricing-table2 featured "
+                        data-wow-delay="0.5s">
+
+                        <div class="single-pricing-2 top">
+                            <div class="pricing2-button">
+                                <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
+                                    title="Subscribe Package">Register
+                                    Now</a>
+                                <ng-template #pkg1>
+                                    <a (click)=" firststep('BM','false','true','false')" class="btn btn-rose" title="Select Plan">Select
+                                        Plan</a>
+                                </ng-template>
+                            </div>
+                            <span class="plan-name text-center">
+                               Monthly Plan
+                            </span>
+                            <p class="plan-price">
+                                <sup class="currency">$</sup>
+                                <strong>29.99</strong>
+                            </p>
+                            <ul class="list-pricing home-list-pricing">
+                                <li>
+                                    <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Upcoming Bids
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Federal Agency Bids
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Search Engine
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Android Mobile App
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> iOS Mobile App
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Electronic Bid Submission
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Winning Bidder Insight
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Technical Support Chat
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> RFP as a Service
+                                </li>
+                            </ul>
+                            <div class="pricing2-button">
+                                <a *ngIf="check_login(); else pkg1" routerLink='/signup' class="btn btn-rose"
+                                    title="Subscribe Package">Register
+                                    Now</a>
+                                <ng-template #pkg1>
+                                    <a (click)=" firststep('BM','false','true','false')" class="btn btn-rose" title="Select Plan">Select
+                                        Plan</a>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="col-lg-5 col-md-4 col-sm-5 col-xs-12 pricing-table2 premium wow animated bounceInUp"
+                        data-wow-delay="0.6s">
+
+                        <div class="single-pricing-2 top">
+                            <div class="pricing2-button">
+                                <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
+                                    title="Subscribe Package">Register
+                                    Now</a>
+                                <ng-template #pkg4>
+                                    <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select
+                                        Plan</a>
+                                </ng-template>
+                            </div>
+                            <span class="plan-name text-center">
+                                Yearly Plan
+                            </span>
+                            <p class="plan-price">
+                                <sup class="currency">$</sup>
+                                <strong>299.99</strong>
+                            </p>
+                            <ul class="list-pricing home-list-pricing">
+                                <li>
+                                    <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Upcoming Bids
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> State &amp; Local Agency Bids
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Federal Agency Bids
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Search Engine
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Android Mobile App
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> iOS Mobile App
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Electronic Bid Submission
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Winning Bidder Insight
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> Technical Support Chat
+                                </li>
+                                <li>
+                                    <i class="fa fa-check"></i> RFP as a Service
+                                </li>
+                            </ul>
+                            <div class="pricing2-button">
+                                <a *ngIf="check_login(); else pkg4" routerLink='/signup' class="btn btn-rose"
+                                    title="Subscribe Package">Register
+                                    Now</a>
+                                <ng-template #pkg4>
+                                    <a (click)="firststep('PY')" class="btn btn-rose " title="Select Plan">Select
+                                        Plan</a>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+
+                </div>
+
+            </section>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- ---------------------------- Template ---------------------------- -->

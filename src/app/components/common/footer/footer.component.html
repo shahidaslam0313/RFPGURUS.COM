@@ -1,0 +1,199 @@
+<div class="footer-upper" id="footer">
+    <div class=" footer-container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12 w-r-w">
+                <h2>Who Are We?</h2>
+                <ul class="list-contact">
+                    <li>
+                        <a routerLink="what-is-rfpgurus">
+                            <i aria-hidden="true" class="fa fa-chevron-right"></i>What is RFPGurus?</a>
+                    </li>
+                    <li>
+                        <a routerLink="how-it-works">
+                            <i aria-hidden="true" class="fa fa-chevron-right"></i>How it Works?</a>
+                    </li>
+                    <li>
+                        <a routerLink="contact-us">
+                            <i aria-hidden="true" class="fa fa-chevron-right"></i>Contact Us</a>
+                    </li>
+                </ul>
+                <ul class="list-social">
+                    <h2>Stalk Us</h2>
+                    <li>
+                        <a href="https://www.facebook.com/RFPGurus-757980041074297/" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/RFPGurus" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                            Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.pinterest.com/RFPGurus/" target="_blank">
+                            <i class="fa fa-pinterest"></i>
+                            Pinterest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-md-6 col-lg-6 col-xs-12 q-l">
+                <h2 class="sh-h2-resources">Quick Links</h2>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <ul class="list-contact">
+                            <li>
+                                <a   onclick="topFunction()" class="appio-scroll" [routerLink]="['/']">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a  onclick="topFunction()" routerLink="who-are-we" class="appio-scroll">
+                                    <i class="fa fa-plus"></i>
+                                    Who Are We?
+                                </a>
+                            </li>
+                            <li>
+                                <a   onclick="topFunction()"routerLink="pricing" class="appio-scroll">
+                                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                    Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a  onclick="topFunction()" routerLink="find-rfps" class="appio-scroll">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    Find RFPs
+                                </a>
+                            </li>
+                            <li>
+                                <a  onclick="topFunction()" href="https://meetings.hubspot.com/demo33" target="_blank">
+                                    <i class="material-icons">slow_motion_video</i>
+                                    Demo
+                                </a>
+                            </li>
+                            <li>
+                                <a  onclick="topFunction()" routerLink="partnership" class="appio-scroll">
+                                    <i class="material-icons">supervised_user_circle</i>
+                                    Partnership
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <ul class="list-contact">
+                            <li>
+                                <a  onclick="topFunction()" routerLink="faqs" class="appio-scroll">
+                                    <i class="fa fa-leanpub"></i>
+                                    FAQs
+                                </a>
+                            </li>
+                            <li>
+                                <a  onclick="topFunction()" routerLink="features-comparison" class="appio-scroll">
+                                    <i class="material-icons">insert_chart</i>
+                                    Features Comparison
+                                </a>
+                            </li>
+                            <li>
+                                <a  onclick="topFunction()" routerLink="rfp-as-service" class="appio-scroll">
+                                    <i class="material-icons">
+                                        assignment
+                                        </i>
+                                    RFP as a Service
+                                </a>
+                            </li>
+                             <li>
+                                <a  onclick="topFunction()" routerLink="preferences" class="appio-scroll">
+                                   
+                                        <i class="fa fa-envelope-open"></i> Unsubscribe  
+                                   
+                                </a>
+                            </li>
+                            <li *ngIf="!check_login() && !check_adminlogin()">
+                                <a  onclick="topFunction()" routerLink="signin" class="appio-scroll">
+                                    <i class="material-icons">fingerprint</i>
+                                    Sign In
+                                </a>
+                            </li>
+                            <li *ngIf="!check_login() && !check_adminlogin()"> 
+                                <a  onclick="topFunction()" routerLink="signup">
+                                    <i class="material-icons">lock_open</i>
+                                    Sign Up
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-stores-img">
+                    <h2>Download and experience our Super-Cool Next-Generation Mobile App Now.</h2>
+                    <a   onclick="topFunction()" target="_blank" href="https://itunes.apple.com/gb/app/rfpgurus/id1444299974?mt=8">
+                        <img src="../../../../assets/img/apple-store.png" />
+                    </a>
+                    <a  onclick="topFunction()" href="https://play.google.com/store/apps/details?id=com.brainplow.rfpgurus" target="_blank">
+                        <img src="../../../../assets/img/google-play.png" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xs-12 subscribe">
+                <h2>What is RFPGurus?</h2>
+                <p>Hundreds of Thousands of RFPs: RFPGurus is the most comprehensive source of Government RFPs, RFIs,
+                    RFBs, RFTs and RFQs making
+                    Searching, Matching and Bidding on Government Contracts a breeze. The Industry's most comprehensive
+                    Feature
+                    Set - One Platform: RFPGurus propels the business workforce in bidding and contract opportunities
+                    to
+                    a whole new level. With its proprietary Machine Learning (ML) engine, RFPGurus provides a next
+                    generation
+                    Artificially Intelligent Platform to connect Vendors with Nationwide Federal, State, County, City &
+                    Local
+                    RFPs. Unbeatable Pricing. One-Package-Includes-All. Every Feature/RFP Included Nationwide. No
+                    Gimmicks.
+                    No Hidden Fees. Next generation Web, iOS & Android Mobile Apps. RFPGurus is your essential WINNING
+                    Partner
+                    in Government RFP Bidding.</p>
+                <!-- <div > -->
+                <form class="input-group sh-subscribe " [formGroup]="form" name="form" #f="ngForm" (ngSubmit)="onSubmit(form.controls.email.value , f)">
+
+
+
+                    
+
+
+                    <!-- <mat-form-field> -->
+                    <input class="form-control " placeholder="Email Address" name="newsletterEmail" id="newsletterEmail"
+                        type="text" formControlName="email">
+                        
+                        
+                    <button class="btn btn-rose " type="submit" [disabled]="!form.valid">
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+
+                    </button>
+                    <p *ngIf="email.touched && !email.valid">
+                        <span *ngIf="form.controls.email.errors.pattern" class="alert alert-danger">
+                            Invalid Email Address.
+                        </span></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer footer-text ptb-10 clearfix">
+    <div class=" footer-container">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <p class="">
+                    Copyright © 2019, RFPGurus. All rights reserved.
+                </p>
+            </div>
+            <div class=" col-lg-7 col-md-87 col-sm-7 col-xs-12">
+                <div class="social-link pull-right">
+                    <a  onclick="topFunction()" [routerLink]="['/terms']"  class="footer-link-border">Terms of Use</a>
+                    <a  onclick="topFunction()" [routerLink]="['/privacy-policy']"  class="">Privacy Policy</a>
+                    <!-- <a href="#" class="">Intellectual Property</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

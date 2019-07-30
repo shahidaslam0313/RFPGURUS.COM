@@ -1,0 +1,325 @@
+<div id="wrapper" [ngClass]="{'search-active': mainSearch === 1}">
+  <div class="search-outer" [ngClass]="{'active': mainSearch === 1}">
+    <div class="container">
+
+
+      <div class="search-holder">
+        <input type="search" value="{{query}}" name=querysearch [(ngModel)]="query" #querysearch="ngModel"
+          (ngModelChange)=filter(query) (keyup.enter)=fund(query) placeholder="Search RFPGurus" id="textsearch">
+
+        <!-- <app-input class="sh-mat-input" showInput = false (error)="onError($event)" (spokenText)="response($event)" ></app-input> -->
+
+        <i id="box" class="fa fa-microphone" (click)="triggerMike()"></i>
+
+        <i class="fa fa-times" id="iconClose" (click)="closeSearch()"></i>
+      </div>
+
+      <div class="search-results" *ngIf="Rfp">
+        <ul class="list-normal">
+          <li *ngIf="!Rfp">
+            <p>No results found. Please use keywords.</p>
+          </li>
+          <li *ngFor="let item of Rfp">
+            <a onclick="topFunction()" class="curser-pointer" (click)="singlerfp(item.seoTitleUrl)">
+              <i class="material-icons">arrow_forward</i> {{item.title}} </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="header-home navbar-transparent ">
+  <nav class="nav-home ">
+
+    <div class="navbar-header ">
+      <button class="navbar-toggle" data-target="#menu-example" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a onclick="topFunction()" routerLink="/" class="logo">
+        <img src="../../../../assets/img/RFP-Gurus-Header-Logo.png" alt="RFPGurus" />
+      </a>
+    </div>
+    <div class="collapse navbar-collapse " id="menu-example">
+      <div class="navbar-right navbar-nav">
+        <ul class="navbar-nav sh-main-options">
+          <li>
+            <a onclick="topFunction()" routerLink="/latest-rfps" routerLinkActive="Active">
+              <i class="fa fa-stack-overflow" aria-hidden="true"></i>Latest RFPs
+            </a>
+          </li>
+          <li>
+            <a  onclick="topFunction()" routerLink="/advanced-search" routerLinkActive="Active">
+              <i class="fa fa-search"></i>Advanced Search
+            </a>
+          </li>
+
+          <li class="">
+            <a onclick="topFunction()" routerLink="/find-rfps" routerLinkActive="Active">
+              <i class="fa fa-search-plus"></i>Find RFPs
+            </a>
+          </li>
+          <li class="" *ngIf="!subscribe">
+            <a onclick="topFunction()" (click)="pricing()" routerLink="/pricing" routerLinkActive="Active">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>Pricing
+            </a>
+          </li>
+          <li>
+            <a onclick="topFunction()" routerLink="/all-states">
+              <i class="fa fa-flag"></i>States
+            </a>
+          </li>
+          <li>
+            <a onclick="topFunction()" routerLink="/all-agencies">
+              <i class="fa fa-building" aria-hidden="true"></i>Agencies
+            </a>
+          </li>
+          <li>
+            <a onclick="topFunction()" routerLink="/features-comparison" routerLinkActive="Active">
+              <i class="fa fa-arrows-alt" aria-hidden="true"></i>Comparison
+            </a>
+          </li>
+          <li class="vanders ">
+            <a onclick="topFunction()" href="javascript:void(0)" routerLink="/why-rfpgurus" routerLinkActive="Active">
+              <i class="fa fa-question-circle"></i>Why RFPGurus?
+            </a>
+            <div class="drop-downs sh-why">
+              <ul class="nav-vanders why-rfp-sublist sh">
+                <li>
+                  <a onclick="topFunction()" routerLink="/why-rfpgurus">
+                    <i class="fa fa-question-circle"></i>Why RFPGurus?
+                  </a>
+                </li>
+                <li>
+                  <a onclick="topFunction()" routerLink="/how-it-works">
+                    <i class="fa fa-fire"></i>How it Works?
+                  </a>
+                </li>
+                <li>
+                  <a onclick="topFunction()" routerLink="/our-team">
+                    <i class="fa fa-flask"></i>Our Expert Team
+                  </a>
+                </li>
+                <li>
+                  <a onclick="topFunction()" routerLink="/what-we-do">
+                    <i class="fa fa-cube"></i>What We Do?
+                  </a>
+                </li>
+                <li>
+                  <a onclick="topFunction()" routerLink="/faqs">
+                    <i class="fa fa-leanpub"></i>FAQs
+                  </a>
+                </li>
+                <li>
+                  <a onclick="topFunction()" routerLink="/what-is-rfpgurus">
+                    <i class="fa fa-leaf"></i>What is RFPGurus?
+                  </a>
+                </li>
+                <li>
+                  <a onclick="topFunction()" routerLink="/who-are-we">
+                    <i class="fa fa-plus"></i>Who are We?
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a onclick="topFunction()" routerLink="/rfp-as-service" routerLinkActive="Active">
+              <i class="fa fa-briefcase" aria-hidden="true"></i>RFP as a Service
+            </a>
+          </li>
+        </ul>
+        <!--.............-->
+        <ul class="navbar-nav sh-android-apple">
+          <li class="heart-li" *ngIf="check_login() ||check_adminlogin()">
+            <a onclick="topFunction()" routerLink="/my-watchlist" title="Watchlist">
+              <i class="fa fa-eye"></i>
+              <sup>{{total}}</sup>
+            </a>
+            <div class="heart-sub-meun">
+              <div class="heart-full-div">
+
+                <div class="heart" *ngFor="let data of wrfp; let i = index">
+                  <div class="addtocart-time" (click)="get(data?.wrfp.id,data?.wrfp.title)">
+                    <i class="fa fa-times"></i>
+                  </div>
+                  <div class="heart-main-div">
+                    <div class="heart-contact">
+                      <a onclick="topFunction()" [routerLink]="['rfp']" [queryParams]="{query:data?.wrfp.seoTitleUrl}">
+                        <div class="heart-heading curser-pointer">
+                          {{data?.wrfp.title}}
+                        </div>
+                      </a>
+                      <div class="heart-detail plan-detail curser-pointer" [routerLink]="['rfp']"
+                        [queryParams]="{query:data?.wrfp.seoTitleUrl}">
+                        <h5 class="ellipsis"><i class="fa fa-university"></i>Category : <span>{{data?.wrfp.new_category}}</span></h5>
+                        <h5><i class="fa fa-fort-awesome"></i>State : <span> {{data?.wrfp.state}}</span></h5>
+                        <h5 *ngIf="data?.wrfp.agency"><i class="fa fa-building-o"></i>Agency :
+                          <span>{{data?.wrfp.agency}}</span></h5>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div >
+              <!-- <div *ngIf="shown == true && total == 1">  -->
+              <div class="wishlist-btn-div" *ngIf="check_login()">
+                <a onclick="topFunction()" routerLink="/my-watchlist" class="addtocart-btn">Go to Watch List</a>
+              </div>
+              <div class="wishlist-btn-div" *ngIf="check_adminlogin()">
+                <a onclick="topFunction()" routerLink="/watchlist" class="addtocart-btn">Go to Watch List</a>
+              <!-- </div> -->
+            </div>
+            </div>
+            <!-- </a> -->
+          </li>
+          <li class="heart-li" *ngIf="check_login()">
+            <a onclick="topFunction()" routerLink="/notifications" title="Notification">
+              <i class="fa fa-bell"></i>
+              <sup>{{unread}}</sup>
+            </a>
+            <div class="heart-sub-meun">
+              <div class="heart-full-div">
+
+                <div class="heart" *ngFor="let item of notificate">
+                  <div class="addtocart-time" (click)="deletenofication(item?.id)">
+                    <i class="fa fa-times"></i>
+                  </div>
+                  <div class="heart-main-div">
+                    <div class="heart-contact">
+                      <a onclick="topFunction()" *ngIf="item.type_of_notification =='Free Trial Alert' || item.type_of_notification =='Subscription Alert'"
+                        routerLink="/purchase-history">
+                        <div class="heart-heading curser-pointer">
+                          {{item.type_of_notification}}
+                        </div>
+                        <div class="heart-detail plan-detail curser-pointer" *ngIf="item.read == false">
+                          <h5 (click)="updatenofication(item.id)"> {{item.description}}</h5>
+                          <div>
+                            {{item.timecreated | date }}
+                        </div>
+                        </div>
+                        <div class="heart-detail plan-detail sh-notification-seen" *ngIf="item.read == true">
+                          <h5 (click)="updatenofication(item?.id)"> {{item.description}}</h5>
+                          
+                        </div>
+                      </a>
+                      <a  onclick="topFunction()"*ngIf="item.type_of_notification !='Free Trial Alert' && item.type_of_notification !='Subscription Alert'"
+                        [routerLink]="['/rfp']" [queryParams]="{query:item.target}">
+                        <div class="heart-heading curser-pointer">
+                          {{item.type_of_notification}}
+                        </div>
+                        <div class="heart-detail plan-detail curser-pointer" *ngIf="item.read == false">
+                          <h5 (click)="updatenofication(item.id)"> {{item.description}}</h5>
+                          <div>
+                            {{item.timecreated | date }}
+                        </div>
+                        </div>
+                        <div class="heart-detail plan-detail sh-notification-seen" *ngIf="item.read == true">
+                          <h5 (click)="updatenofication(item?.id)"> {{item.description}}</h5>
+                          <div>
+                              {{item.timecreated | date }}
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wishlist-btn-div" *ngIf="check_login()">
+                <a onclick="topFunction()" routerLink="/notifications" class="addtocart-btn">All Notifications</a>
+              </div>
+            </div>
+            <!-- </a> -->
+          </li>
+          <li>
+            <a onclick="topFunction()" href="https://play.google.com/store/apps/details?id=com.brainplow.rfpgurus" target="_blank">
+              <i class="fa fa-android"></i>
+            </a>
+          </li>
+          <li>
+            <a onclick="topFunction()" target="_blank" href="https://itunes.apple.com/gb/app/rfpgurus/id1444299974?mt=8">
+              <i class="fa fa-apple"></i>
+            </a>
+          </li>
+          <li class="dropdown cartmenu searchmenu hasmenu">
+            <a onclick="topFunction()" id="search" class="dropdown-toggle curser-pointer" (click)="openSearch()">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+        <!--............-->
+        <ul class="navbar-nav sh-signin-signup">
+          <li *ngIf="check_login()" class="vanders">
+            <a onclick="topFunction()" routerLink="/profile">
+              <i class="fa fa-user" aria-hidden="true"></i>My RFPGurus
+            </a>
+            <div class="profile-name drop-downs">
+              <ul class="nav-vanders  why-rfp-sublist">
+                <li *ngIf="check_login()">
+                  <a  onclick="topFunction()" routerLink="/preferences">
+                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    RFP Preferences</a>
+                </li>
+                <li *ngIf="check_login()">
+                  <a onclick="topFunction()" routerLink="/notifications">
+                    <i class="fa fa-bell"></i>Bid Notifications</a>
+                </li>
+                <li *ngIf="check_login()">
+                  <a onclick="topFunction()" routerLink="/my-watchlist">
+                    <i class="fa fa-heart" aria-hidden="true"></i>My Watch List</a>
+                </li>
+                <li *ngIf="check_login()">
+                  <a onclick="topFunction()" routerLink="/profile">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>Profile</a>
+                </li>
+                <li *ngIf="check_login()">
+                  <a onclick="topFunction()" routerLink="/purchase-history">
+                    <i class="fa fa-history" aria-hidden="true"></i>Subscription</a>
+                </li>
+                <li *ngIf="check_login()">
+                  <a onclick="topFunction()" routerLink="/payment">
+                    <i class="fa fa-money"></i>Payment Methods</a>
+                </li>
+                <li *ngIf="check_login()">
+                    <a onclick="topFunction()" routerLink="/support">
+                      <i class="fa fa-comment"></i>Support Center
+                  </a>
+                </li>
+                <li *ngIf="check_login()">
+                  <a onclick="topFunction()" routerLink="/change-password">
+                    <i class="fa fa-key" ria-hidden="true"></i>Change Password</a>
+                </li>
+             
+                <li *ngIf="check_login()">
+                  <a onclick="topFunction()" routerLink="/contact-us">
+                    <i class="fa fa-comment" aria-hidden="true"></i>Contact Us</a>
+                </li>
+                <li *ngIf="check_login()" class="">
+                  <a onclick="topFunction()" (click)="logout()" class="curser-pointer">
+                      <i class="fa fa-sign-out"></i>Sign Out</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li *ngIf="!check_login() && !check_adminlogin()" class="mr-2px">
+            <a onclick="topFunction()" routerLink="/signin" routerLinkActive="Active">
+              <i class="fa fa-sign-in"></i> Sign in
+            </a>
+          </li>
+          <li *ngIf="!check_login() && !check_adminlogin()" class="sign">
+            <a onclick="topFunction()" routerLink="/signup" routerLinkActive="Active">
+              <i class="fa fa-user" aria-hidden="true"></i>Sign up
+            </a>
+          </li>
+          <!--............-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

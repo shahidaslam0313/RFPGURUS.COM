@@ -1,0 +1,72 @@
+<!-- <app-loader></app-loader> -->
+
+<div id="wrapper" class="mt-main" [ngClass]="{'search-active': mainSearch === 1}">
+
+  <div class="search-outer" [ngClass]="{'active': mainSearch === 1}">
+
+    <i (click)="focusInput()">focus</i>
+    <div class="container">
+
+      <div class="search-holder">
+        <input ngAutoFocus type="search" name=querysearch [(ngModel)]="query" #querysearch="ngModel"
+          (keydown)=filter(query) placeholder="Search Agencies" id="textsearch">
+        <i class="fa fa-close" id="iconClose" (click)="closeSearch()"></i>
+      </div>
+      <div class="search-results" *ngIf="Rfp">
+        <ul class="list-normal">
+          <li *ngIf="!Rfp">
+            <p>No results found. Please use keywords.</p>
+          </li>
+          <span *ngFor="let item of Rfp">
+            <li *ngIf="item.agency != '' ">
+              <a class="curser-pointer" [routerLink]="['/agency']" [queryParams]="{ agency: item.agency}"> <i
+                  class="material-icons">arrow_forward</i>
+                {{item.agency}} </a>
+            </li>
+          </span>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content all-agency">
+  <div class="container">
+    <div class="row">
+      <div class="all-cats">
+        <div class="head col-sm-12">
+          <div class="row">
+            <div class="col-sm-8 col-xs-12">
+              <h3><i class="fafa-list-alt"></i>All Agencies</h3>
+            </div>
+            <div class="col-sm-4 col-xs-12 text-right tab-text-center">
+              <input type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}"
+                placeholder="Search Agencies" class="search-allstates">
+              <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="loaded==true">
+          <div class="col-sm-12 text-center" *ngIf="(agency['Result'] | filter:agensearch).length==0">
+            <i class="fa fa-exclamation-triangle"></i>
+            <h3 class="text-center">No Record Found</h3>
+          </div>
+        </div>
+        <div *ngFor="let rfpagency of agency['Result'] | filter:agensearch" class="col-sm-4 col">
+          <div class="col-sm-1 col-xs-1"><i class="fa  fa-superpowers" aria-hidden="true"></i></div>
+          <div class="col-sm-11 col-xs-11 elpsis-agency"><a class="curser-pointer" [routerLink]="['/agency']"
+              [queryParams]="{ agency: rfpagency.agency}">
+              {{rfpagency.agency | titlecase }}({{rfpagency.total}})
+            </a></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <button class="btn btn-rose btn-size" *ngIf="agency.totalPages > 1" (click)="rfpagencieswithpagination(agency.totalItems)">
+        <i class="fa fa-spinner" aria-hidden="true"></i> Load More
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="card-recap">
+  <div class="main">
+    <img [src]="imgName">
+    <button class="refrash-button" type="button" (click)="resetImg()" mat-icon-button>
+      <i class="fa fa-refresh"></i>
+    </button>
+  </div>
+  <input #recap placeholder="Verify above text" class="recapcha-input" [(ngModel)]="capchaText" autocomplete="off"
+    maxlength="5" (change)="checkChange()">
+</div>

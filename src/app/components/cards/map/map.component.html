@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="padding-0 col-md-offset-2 " [ngClass]="{'col-md-5 col-sm-7': cartonStatus}">
+    <div class="map-mid ">
+      <us-map class="curser-pointer" (onMapClick)="getState($event)" strokeColor="#00000" fillStateColor="#fff"
+        fillColor="black"> </us-map>
+    </div>
+  </div>
+  <div class="col-md-5 col-sm-5 padding-0" *ngIf="cartonStatus">  
+    <img class="mg-top-35px" src="../../../../assets/img/avatar.png" alt="img">
+  </div>
+</div>

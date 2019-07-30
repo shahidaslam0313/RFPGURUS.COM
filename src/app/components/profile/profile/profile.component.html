@@ -1,0 +1,182 @@
+<div class="wrapper edit-profile-comp">
+    <div class="row margin-0 ">
+      <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 center-admin-form" id="display_advance">
+        <div class="card">
+          <form [formGroup]="register" class="sh-signup-form-fix floting-label edit-profile ">
+            <div class="card-header card-header-icon" data-background-color="rose">
+              <i class="fa fa-user"></i> Edit Profile
+            </div>
+            <div class="card-content">
+              <div class="row mrg-btm">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'firstname')">
+                    <mat-form-field class="example-full-width">
+                      <input class="text-capitalize" matInput placeholder="First Name" type="text" id="firstname"
+                        formControlName="firstname" [(ngModel)]="profile.first_name" value="{{profile?.first_name}}"
+                        minlength="2" maxlength="64" required>
+                      <mat-error *ngIf="register.controls.firstname.hasError('pattern')">
+                        Only Alphabets
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.firstname.value == ''">
+                        <strong>First name cannot be empty</strong>
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.firstname.errors?.minlength">
+                        <strong>First name must be between 2 and 64 characters</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'lastname')">
+                    <mat-form-field class="example-full-width">
+                      <input class="text-capitalize" matInput placeholder="Last Name" type="text" id="lastname" minlength="2" maxlength="64"
+                        formControlName="lastname" [(ngModel)]="profile.last_name" value="{{profile.last_name}}" required>
+                      <mat-error *ngIf="register.controls.lastname.hasError('pattern')">
+                        Only Alphabets
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.lastname.value == ''">
+                        <strong>Last name cannot be empty</strong>
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.lastname.errors?.minlength">
+                        <strong>Last name must be between 2 and 64 characters</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row mrg-btm">
+                <div class="col-sm-6 zip-address">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'companyname')">
+                    <mat-form-field class="example-full-width">
+                      <input class="text-capitalize" matInput placeholder="Company Name" type="text" id="companyname" minlength="3" maxlength="64"
+                        formControlName="companyname" [(ngModel)]="personal.company" value="{{personal.company}}" required>
+                      <mat-error *ngIf="register.controls.companyname.value == ''">
+                        <strong>Company name cannot be empty</strong>
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.companyname.errors?.minlength">
+                        <strong>Company Name must be between 3 and 64 characters</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-sm-6 zip-address">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'address')">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Address" type="text" id="address" formControlName="address"
+                        [(ngModel)]="personal.address" value="{{personal.address}}" required>
+                      <mat-error *ngIf="register.controls.address.value == ''">
+                        <strong>Address cannot be empty</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row mrg-btm">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'zipcode')">
+                    <mat-form-field>
+                      <input matInput type="text" id="zipcode" (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1
+                        [(ngModel)]="personal.zipcode" formControlName="zipcode" value="{{personal.zipcode}}" (keydown.space)="$event.preventDefault()"
+                        placeholder="Zip Code" maxlength="5" required  (keypress)="keyPress($event)"/>
+                      <mat-error *ngIf="register.controls.zipcode.errors?.minlength">
+                        Zip Code must 5 digits long.
+                      </mat-error>
+                      <mat-error *ngIf="register.controls.zipcode.value == ''">
+                        <strong>Zip Code cannot be empty</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <p class="clr_red" *ngIf="invalid && !personal.city && !personal.state && !personal.country && personal.zipcode!='' && personal.zipcode.length==5">
+                      Invalid Zipcode
+                    </p>
+                    <p class="clr_red" *ngIf="!invalid && personal.city && personal.state && personal.country">
+                    </p>
+                  </div>
+                </div>
+    
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'city')">
+                    <mat-form-field class="example-full-width">
+                      <input matInput class="sh-text-capt" placeholder="City" type="text" id="city" formControlName="city"
+                        [(ngModel)]="personal.city" value="{{personal.city}}" required readonly>
+                      <mat-error *ngIf="register.controls.city.value == ''">
+                        <strong>City cannot be empty</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row mrg-btm">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'state')">
+                    <mat-form-field class="example-full-width">
+                      <input matInput class="text-uppercase" placeholder="State" type="text" id="state" readonly
+                        formControlName="state" [(ngModel)]="personal.state" value="{{personal.state}}" required>
+                      <mat-error *ngIf="register.controls.state.value == ''">
+                        <strong>State cannot be empty</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'country')">
+                    <mat-form-field class="example-full-width">
+                      <input matInput class="sh-text-capt" placeholder="Country" type="text" id="country" readonly
+                        formControlName="country" [(ngModel)]="personal.country" value="{{personal.country}}" required>
+                      <mat-error *ngIf="register.controls.country.value == ''">
+                        <strong>Country cannot be empty</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+    
+    
+              </div>
+              <div class="row mrg-btm">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'phone')">
+                    <int-phone-prefix class="phonee profile-phonee" [(ngModel)]="personal.phone_no" placeholder="Phone No"
+                      formControlName="phone" value="{{personal.phone_no}}">
+    
+                    </int-phone-prefix>
+    
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'email')">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Email" type="text" id="email" formControlName="email"
+                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="profile.email"
+                        value="{{profile.email}}" disabled>
+                    </mat-form-field>
+                    <app-field-error-display [displayError]="isFieldValid(register, 'email')"
+                      errorMsg="Email is required and format should be john@doe.com.">
+                    </app-field-error-display>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group label-floating" [ngClass]="displayFieldCss(register, 'username')">
+    
+                    <input matInput type="text" id="username" formControlName="username" [(ngModel)]="profile.username"
+                      value="{{profile.username}}" hidden>
+                    <app-field-error-display [displayError]="isFieldValid(register, 'username')"
+                      errorMsg="Enter a valid First Name.">
+                    </app-field-error-display>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-footer text-right">
+              <div *ngIf="!pkgsub">
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class=" profile-update btn btn-lrg btn-rose btn-fill btn-wd"
+                  (click)="onRegister()">Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

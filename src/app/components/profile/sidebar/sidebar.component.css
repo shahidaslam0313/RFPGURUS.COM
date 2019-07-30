@@ -1,0 +1,54 @@
+
+.sidebar-admin {
+  padding: 0;
+  min-height: 100%;
+  color: #fff
+}
+.user-sidebar{
+  padding: 15px 0;
+}
+
+.side-bar-component .user-sidebar ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+
+.side-bar-component .user-sidebar ul li a {
+  color: #555;
+  font-size: 16px!important;
+  padding: 12px 0;
+  display: block;
+  font-weight: 600;
+  outline: 0!important;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.side-bar-component .user-sidebar ul li a i {
+  padding-left: 20px;
+  padding-right: 5px;
+  font-size: 20px;
+  vertical-align: text-bottom;
+}
+
+.side-bar-component .user-sidebar ul li a:hover {
+  background-color: #f5f5f5;
+  text-decoration: none;
+}
+.active-route {
+  background-color: #f5f5f5 !important;
+  color: #555 !important;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; 
+  text-decoration: none;
+}
+
+/* ................... */
+.sidebar-dashboard-title {
+  text-align: center;
+  font-size: 30px;
+  color: #555;
+  font-weight: 500;
+}

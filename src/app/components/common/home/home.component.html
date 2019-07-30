@@ -1,0 +1,466 @@
+<div id="wrapper" [ngClass]="{'search-active': mainSearch === 1}">
+    <div class="search-outer" [ngClass]="{'active': mainSearch === 1}">
+        <div class="container">
+            <div class="search-holder"> <input ngAutoFocus type="search" name=querysearch [(ngModel)]="query"
+                    #querysearch="ngModel" (keydown)=filter(query) placeholder="Search RFPs..." id="textsearch"> <i
+                    class="fa fa-close" id="iconClose" (click)="closeSearch()"></i></div>
+            <div class="search-results" *ngIf="Rfp">
+                <ul class="list-normal">
+                    <li *ngIf="!Rfp">
+                        <p>No results found. Please use keywords.</p>
+                    </li>
+                    <li *ngFor="let item of Rfp"> <a class="curser-pointer" (click)="singlerfp( item.seoTitleUrl)"> <i
+                                class="material-icons">arrow_forward</i> {{item.title}}
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="home-main">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="download-btns"> <a href="https://itunes.apple.com/gb/app/rfpgurus/id1444299974?mt=8"
+                    target="_blank"> <img src="../../../../assets/img/apple-store.png" alt="Apple Store" /> </a> <a
+                    href="https://play.google.com/store/apps/details?id=com.brainplow.rfpgurus" target="_blank"> <img
+                        src="../../../../assets/img/google-play.png" alt="Google Play Store" /> </a>
+            </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="slider-img" src="../../../../assets/img/slides/1.jpg" alt="image description">
+                </div>
+
+                <div class="item">
+                    <img class="slider-img" src="../../../../assets/img/slides/2.jpg" alt="image description">
+                </div>
+
+                <div class="item">
+                    <img class="slider-img" src="../../../../assets/img/slides/3.jpg" alt="image description">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+            <div class="form-home">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mg-top-10px">
+                            <h2 class="sh-map-desc">Click on any state in the nationwide map
+                                to view Latest RFPs</h2>
+                            <div class="svg_map">
+                                <app-map [cartonStatus]="false" async></app-map>
+                            </div>
+                        </div>
+                        <div class="container sh-dp-none" id="CategoryDiv" *ngIf="CategoryCheck">
+                            <div class="col-md-12">
+                                <ngx-slick class="CategorySlider" #slickModal="slick-modal" [config]="slideConfig">
+                                    <div class="item CategorySliderTop" ngxSlickItem *ngFor="let ite of cat">
+                                        <div class="image">
+                                            <a  class="cat-elips" [routerLink]="['/category']" [queryParams]="{ cat:ite.category_name}">
+                                                <img title={{ite.category_name}} class="img cat-slide"
+                                                    src="../../../../assets/img/cat/{{ite.category_image}}@96px.png">
+                                            </a>
+                                        </div>
+                                        <div class="slide-overlay">
+                                            <h4 class="card-title elipsis-cat-slider">
+                                                <a  class="cat-elips" [routerLink]="['/category']"
+                                                    [queryParams]="{ cat: ite.category_name}" class=".pclass "
+                                                    title={{ite.category_name}}>{{ ite.category_name }}</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </ngx-slick>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="row">
+  <section class="choose-criteria" async>
+    <div class="container-fluid">
+      <div class="col-lg-7 col-md-8 col-sm-12">
+           
+        <h4 class="hd1">Flash Sale - 50% Off only for a limited time.</h4>
+        
+        <h4 class="hd1">Take advantage of this incredible offer NOW </h4>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-12 pd-0-i">
+             
+        <!-- <countdown-timer  class="mainpagee1 pd-0-i" [start]="'2019-05-07 00:00:00'"></countdown-timer> -->
+        <countdown class="mainpagee1 pd-0-i" [text]="text"  units=" Days | Hours | Minutes | Seconds"
+          end="{{totaltime?.sale_timer}}"> </countdown>
+      </div>
+    
+      <div class="col-lg-2 col-md-12 col-sm-12  text-center">
+        <a routerLink="/pricing"> <button class="Subscribe-btn">Subscribe Now</button></a>
+      </div> 
+    </div>
+  </section>
+
+            <featurecomparison async></featurecomparison>
+
+            <section class="packages-holder " async>
+                <div class="container-fluid sh-pkg-holder">
+                    <h3 class="heading text-center main_heading">Latest RFPs</h3>
+
+                    <ngx-slick  #slickModal="slick-modal" [config]="slideConfig2">
+                        <div class="item " ngxSlickItem *ngFor="let rfp of record">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-sm-12 latest-rfp-div">
+                                        <div class="card-header card-header-text" data-background-color="purple"> <a
+                                                class="curser-pointer" [routerLink]="['/rfp']"
+                                                [queryParams]="{query:rfp.seoTitleUrl}">
+                                                <h4 class="card-title">
+                                                    {{rfp.rfpkey}}</h4>
+                                            </a></div>
+                                        <div class="card-content">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 plan-detail">
+                                                <h3> <a class="curser-pointer" [routerLink]="['/rfp']"
+                                                        [queryParams]="{query:rfp.seoTitleUrl}">
+                                                        {{rfp.title}}</a>
+                                                </h3>
+                                                <h5 class="sh-rfp-dates"> <i class="fa fa-university"></i>
+                                                    Category :
+                                                    <span>{{rfp.new_category | slice:0:21}}...</span>
+                                                </h5>
+                                                <h5> <i class="glyphicon glyphicon-calendar"></i>
+                                                    Posted Date : <span
+                                                        *ngIf="check(rfp.date_entered) == true">{{rfp.date_entered | date:'EEEE, MMM dd, y'}}</span>
+                                                </h5>
+                                                <h5> <i class="glyphicon glyphicon-calendar"></i>
+                                                    Submission Deadline :
+                                                    <span
+                                                        *ngIf="check(rfp.due_date) == true">{{rfp.due_date | date:'EEEE, MMM dd, y'}}</span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ngx-slick>
+
+                    <!-- <!=========================== US Map===========================> -->
+                        <app-map [cartonStatus]="true" async></app-map>
+
+
+                        <div class="text-center col-md-12"> <a routerLink="latest-rfps"> <button type="button" class="btn  btn-rose" title="View All Latest RFPs">View All Latest RFPs <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                         </button> </a>
+                        </div>
+                </div>
+            </section>
+
+            <section class="interest-area sh" async>
+                <div class="container">
+                    <h3 class="text-center">Search By Area</h3>
+
+                    <ngx-slick class="s-areaCarousel CategorySlider" #slickModal="slick-modal" [config]="slideConfig">
+                        <div ngxSlickItem *ngFor="let areas of Areas">
+                            <button (click)="stateInfo(areas.area)" type="button" [class]="areas.class">
+                                <img src="../../../../assets/img/states/{{areas.area}}@30px.png" alt="img">
+                                {{areas.area}}</button>
+                        </div>
+                    </ngx-slick>
+
+                    <div class="btn-holder text-center m-top-18px"> <a routerLink="all-states"> 
+                        <button type="button"
+                                class="btn  btn-rose" title="View All States">View All States <i
+                                    class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </button></a></div>
+                </div>
+            </section>
+
+            <section class="how-rfp-help" async>
+                <div class="container">
+                    <div class="row m-top-minus-35px">
+                        <h3 class="text-center">How RFPGurus helps your organization in bidding on
+                            Nationwide Government
+                            Contracts the Smart Way?</h3>
+                        <p class="m-top-18px">Hundreds of Thousands of RFPs. RFPGurus is the most
+                            comprehensive source of RFPs,
+                            RFI, RFQs, RFTs & RFBs with next generation Web & Platform Apps. We are
+                            RFP aggregator and
+                            provide RFP Data to vendors and businesses at the Federal, State,
+                            County, City and Local levels.
+                            With our proprietary Machine Learning (ML) algorithms and Artificially
+                            Intelligent Bid Matching,
+                            we propel your business in bidding on Government RFPs the Smart Way!
+                            <br> <br> <span> Here is a
+                                brief glimpse into some of our Features and Services.</span></p>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 top-lists m-top-minus-15">
+                            <ul>
+                                <li>Instant Web and Mobile Access to all Government RFPs, RFIs,
+                                    RFQs, RFTs and RFBs</li>
+                                <li>Hundreds of Thousands of RFPs. Nationwide Coverage. The most
+                                    comprehensive source of
+                                    Nationwide RFPs, RFIs and RFQs</li>
+                                <li>RFP Bid Submission Advice</li>
+                                <li>Money Saving Tips</li>
+                                <li>Web, iOS & Android Apps</li>
+                                <li>Super-Fast. Super-Easy. Browse, Click/Tap and Bid. It’s that
+                                    simple</li>
+                                <li>One-Package-Includes-All, The industry’s most comprehensive
+                                    Feature Set</li>
+                                <li>Unbeatable Pricing. No Hidden Fees. No Gimmicks</li>
+                                <li>RFPGurus Blog</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 top-lists m-top-minus-15">
+                            <ul>
+                                <li>A passion for excellence in customer service</li>
+                                <li>Daily Notifications sent on Web and Mobile</li>
+                                <li>Upcoming Bid Notifications</li>
+                                <li> Artificially Intelligent Bid Matching</li>
+                                <li>Winning Bidder Insight</li>
+                                <li>60% more RFPs posted than our competitors</li>
+                                <li>Supports vendors with easy solicitation, tracking, and
+                                    online response writing</li>
+                                <li> Save Time and Money on RFP Bidding with a next generation
+                                    platform for RFP Bidding</li>
+                                <li>RFP as a Service: Contact Lists & Custom Proposal Writing
+                                    Services</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-top-minus-15 padding-zero tab-mt-top-10px">
+                            <p>RFPGurus provides data services to all vendors, organizations, and
+                                businesses: From startups
+                                to large mega-corporations. Our success is brought about by our
+                                continuous hard work in
+                                customizing our customer’s RFP Proposals to best suit the needs
+                                of the Government Agency
+                                that they are submitting for. <br> <br> <span>Here are some of
+                                    the industry verticals that
+                                    we serve and aggregate data from.</span></p>
+                        </div>
+
+                        <app-random-categories async></app-random-categories>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 last-3-para padding-zero">
+                            <p> RFPGurus RFX open architecture gives you the ability to download,
+                                submit and manage
+                                Request-for-Proposal (RFP), Request-for-Information (RFI),
+                                Request-for-Bid (RFP),
+                                Request-for-Tender (RFT) and Request-for-Quotation (RFQ). From
+                                individual product purchases,
+                                maintenance contracts to professional services and large
+                                multi-prime engineering projects,
+                                RFPGurus can rapidly and efficiently navigate through the entire
+                                process flow of Search,
+                                Browsing, Submission, and Management.</p>
+                            <p> RFPGurus, One-Package-Includes-All, provides vendors and businesses
+                                unlimited access to
+                                government bids from over thousands of Nationwide
+                                Public Sector Agencies in
+                                the USA and Canada. Sure, you can search the web on your own;
+                                but, why spend so many hours
+                                browsing & scouring government agency portals when you can get
+                                the bids you care about
+                                delivered to your inbox on Web & Mobile at an unbeatable price!
+                            </p>
+                            <p> And we don't just rely on technology to aggregate RFPs at a
+                                Nationwide level. We have real
+                                live people researching and curating RFP opportunities, around
+                                the clock to bring you the
+                                most comprehensive Platform for RFPs, RFIs, RFQs, RFTs, and
+                                RFBs.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="choose-criteria" async>
+                <div class="container">
+                    <ul>
+                        <li> <a routerLink="pricing"> <i class="material-icons">explore</i>
+                                <h4>Pricing</h4>
+                                 
+                                <p>Get premium quality service at great prices.</p>
+                            </a></li>
+                        <li> <a routerLink="find-rfps"> <i class="material-icons">polymer</i>
+                                <h4>RFPs</h4>
+                                <p>Proven solutions for a change.</p>
+                            </a></li>
+                        <li> <a routerLink="rfp-as-service"> <i class="material-icons">filter</i>
+                                <h4>RFP as a Service</h4>
+                                <p>Services and more.</p>
+                            </a></li>
+                        
+                    </ul>
+                </div>
+            </section>
+
+            <section class="home pw-solutions" async>
+                <div class="container">
+                    <h3 class="text-center">RFPGurus Portfolio - Your ONE STOP SHOP for ALL Government Bids
+                    </h3>
+                    <p>RFPGurus is the most comprehensive source of RFPs/RFI/RFBs/RFTs/RFQs with a next
+                        generation Web &
+                        Platform for Nationwide RFP Data at the Federal, State, County, City, and Local
+                        levels</p>
+                    <ul class="fourcolumns">
+                        <li class="">
+                            <div class="holder icons red"> <a class="img-holder"> <i class="material-icons">home</i>
+                                </a>
+                                <h3>Our Company</h3>
+                                <div class="txt-holder">
+                                    <p>Hundreds of Thousands of RFPs. Nationwide Coverage. The
+                                        most comprehensive source of
+                                        Nationwide RFPs, RFIs and RFQs</p>
+                                    <p> Web, iOS & Android Apps</p>
+                                    <p> Super-Fast. Super-Easy. Browse, Click/Tap and Bid.
+                                        It’s that simple</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="holder icons purple"> <a class="img-holder"> <i
+                                        class="material-icons">query_builder</i> </a>
+                                <h3>Save Time</h3>
+                                <div class="txt-holder">
+                                    <p> A passion for excellence in customer service</p>
+                                    <p> Daily Notifications sent on Web and Mobile</p>
+                                    <p>Upcoming Bid Notifications</p>
+                                    <p> Artificially Intelligent Bid Matching</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="holder icons pink"> <a class="img-holder"> <i
+                                        class="material-icons">favorite</i>
+                                </a>
+                                <h3>Customer Care</h3>
+                                <div class="txt-holder">
+                                    <p>Winning Bidder Insight</p>
+                                    <p> 60% more RFPs posted than our competitors</p>
+                                    <p> Supports vendors with easy solicitation, tracking,
+                                        and online response writing</p>
+                                    <p> Unbeatable Pricing. No Hidden Fees. No Gimmicks.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="holder icons green"> <a class="img-holder"> <i
+                                        class="material-icons">account_balance</i> </a>
+                                <h3>All Under One Roof</h3>
+                                <div class="txt-holder">
+                                    <p> Save Time and Money on RFP Bidding with a next
+                                        generation platform for RFP Bidding
+                                    </p>
+                                    <p> RFP as a Service: Contact Lists & Custom Proposal
+                                        writing Services</p>
+                                    <p> One-Package-Includes-All. The industry’s most
+                                        comprehensive Feature Set.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+<section class="success-for-business" async>
+  <div class="container">
+    <h2 class="text-center "> <strong>Success</strong> for your Business</h2>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <article class="icon-box"> <i class="material-icons">wb_sunny</i>
+          <h4>Win Government Contracts</h4>
+          <p>Experience the commitment by Winning Government RFP,
+            Government Bids, and Government
+            Contracts with us!</p>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <article class="icon-box" routerLink="pricing"> <i class="material-icons">blur_on</i>
+          <h4>Package of your choice</h4>
+          <p>We offer an assortment of bundles and administration choices,
+            making the correct blend
+            for each size and kind of organization. Pick a right
+            package today aligned with your
+            needs today to shape a better tomorrow.</p>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <article class="icon-box"> <i class="material-icons">trending_down</i>
+          <h4>Your essential WIN partners</h4>
+          <p>RFPGurus is your essential WIN partner. We provide the right
+            information at the right
+            time for the right people.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="banner-rfp">
+  <img src="../../../../assets/img/Banner-Image.png" alt="img">
+
+
+  
+  <ul  class="play-store-img2">
+    <li >
+      <a href="https://itunes.apple.com/gb/app/rfpgurus/id1444299974?mt=8"
+      target="_blank">
+        <img  alt="IOS" class="iosBadge" src="../../../../assets/img/apple-store.png" alt="Apple Store">
+      </a>
+    </li>
+    <li >
+      <a   href="https://play.google.com/store/apps/details?id=com.brainplow.rfpgurus" target="_blank">
+        <img  alt="google play store" class="androidBadge" src="../../../../assets/img/google-play.png" alt="Google Play Store">
+      </a>
+    </li>
+  </ul>
+</div>
+
+</div>
+    </div>
+  <button id="openModal " type="button" #openModal [hidden]="true" class="btn btn-primary modal-hide"
+        data-toggle="modal" data-target="#exampleModalCenter">
+  </button>
+  <div *ngIf="!check_login()" class="modal fade login-or-signup" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered custom-model" style="animation-delay: 15s" role="document">
+            <div class="modal-content login-template">
+                <!-- <div class="modal-header">
+                    <div style="float: top; float: right"> <button type="button" class="close sh" data-dismiss="modal"
+                            aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div>
+                    <h5 class="modal-title must-login Halvetica main_heading" id="exampleModalCenterTitle">Join RFPGurus
+                    </h5>
+                </div> -->
+                <!-- <div class="modal-body"> Hundreds of thousands of RFPs nationwide available on bleeding edge Web
+                    & Mobile
+                    Apps - RFPGurus is the most comprehensive source of RFPs and Market Intelligence at the
+                    Federal, State,
+                    County, City and all other levels of government.<div class="custom-popup-img"> <img
+                            src="../../assets/img/RFPGurus-Home-Screen-Logo.png"></div>
+                </div> -->
+                <div class="on-load-popup">
+                    <div class="close-button"> <button type="button" class="close sh" data-dismiss="modal"
+                            aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div>
+                     <img src="../../../../assets/img/Popup-Banner.png">
+                  
+                </div>
+                <div class="modal-footer">
+                  <!-- <a routerLink="signin"> <button title="Member Login" type="button"
+                                            class="btn btn-primary btn-must-login" data-dismiss="modal">Member
+                                            Login</button> </a> -->
+                  <a routerLink="/pricing"> <button title="Subscribe Now" type="button" class="btn btn-primary btn-must-signup Sub-btn"
+                      data-dismiss="modal">Subscribe
+                      Now</button> </a>
+                </div>
+                            <countdown class="benner-conter mainpagee"  [text]="text" units=" Days | Hours | Minutes | Seconds" end="{{totaltime?.sale_timer}}"> </countdown>
+
+            </div>
+        </div>
+   </div>

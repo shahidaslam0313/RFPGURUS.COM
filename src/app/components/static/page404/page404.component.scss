@@ -1,0 +1,71 @@
+.clr_blue {
+  color: #337ab7
+}
+
+
+.container{
+  margin-top: 20px;
+}
+.lead {
+  font-family: "BentonSansBBVA Book","Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: -0.3px;
+  line-height: 1.4;
+}
+.btn {
+  border: 0;
+  border-radius: 1px !important;
+  color: #fff !important;
+  font-family: "BentonSansBBVA Bold","Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-size: 1.6rem;
+  /* margin: .5em 0; */
+  padding: 16px 3rem;
+  transition: background-color 100ms linear;
+  white-space: inherit;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #000;
+}
+.form-group-bbva input{
+  font-size: 24px;
+  padding: 1rem;
+  background: #fff;
+  color: #121212;
+  outline: 0;
+  border: 0;
+  font-family: "BentonSansBBVA Book","Helvetica Neue",Arial,Helvetica,sans-serif;
+  letter-spacing: .015em;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+.btn-aqua {
+  border: 0;
+  border-radius: 1px !important;
+  color: #fff !important;
+  font-family: "BentonSansBBVA Bold","Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-size: 1.6rem;
+  /* margin: .5em 0; */
+  padding: 16px 3rem;
+  transition: background-color 100ms linear;
+  white-space: inherit;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #000;
+}
+.icon-list{
+  list-style: none;
+  display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.icon-list li{
+  display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+ul.icon-list li .icon {
+  display: table-cell;
+  padding-right: .75em;
+  padding-top: 3px;
+  vertical-align: top;
+}

@@ -1,0 +1,169 @@
+.who-are-we {
+  background-image: url(../../../../assets/img/Who-are-we.png);
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1
+}
+.what-is-rfp{
+  text-align: center;
+}
+.sh-how-it-works h2,
+.sh-how-it-works p {
+    color: #fff!important
+}
+.sh-how-it-works p,
+.sh-ourExpertTeam,
+.sh-why-rfpgurus {
+    font-size: 20px;
+    line-height: 27px
+}
+
+.about-3 {
+  font-size: 22px;
+  line-height: 36px;
+  background-image: url(../../../../assets/img/img-04.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: bottom;
+  background-size: 100% auto;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+  text-align: center
+}
+
+.about-3 p {
+  margin: 0 0 6px;
+  text-align: left;
+}
+
+.about-3:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .7);
+  content: '';
+  z-index: -1
+}
+
+.about-4 {
+  font-size: 16px;
+  line-height: 22px;
+  background: #fff;
+  padding: 20px 0
+}
+
+.count-on {
+  background: #fff;
+  padding: 20px 50px
+}
+
+.count-on .title {
+  margin: 0 0 30px!important
+}
+
+.count-on .holder {
+  font-size: 22px;
+  line-height: 26px;
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  position: relative;
+  background: #fafafa;
+  min-height: 260px;
+  padding: 20px;
+  text-align: center;
+  margin: 0 0 30px;
+  cursor: pointer;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .24);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .24)
+}
+
+.count-on .holder i {
+  font-size: 30px;
+  line-height: 75px;
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background: #e53935;
+  color: #fefefe;
+  margin: 0 auto 15px;
+  text-align: center;
+  display: block
+}
+
+.count-on .holder h4 {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-weight: 500
+}
+
+.count-on .holder .overlay-holder {
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  padding: 0 15px;
+  position: absolute;
+  left: 100%;
+  right: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 9
+}
+
+.count-on .holder .overlay-holder.right {
+  right: 100%;
+  left: auto
+}
+
+.count-on .holder .overlay-holder.right .overlay:after {
+  border-left-color: #e57373;
+  border-right-color: transparent;
+  right: auto;
+  left: 100%
+}
+
+.count-on .holder .overlay {
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-animation: beat 1.5s infinite;
+  animation: beat 1.5s infinite;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #e57373;
+  color: #fefefe;
+  position: relative;
+  text-align: justify
+}
+
+.count-on .holder .overlay>p:last-child {
+  margin: 0
+}
+
+.count-on .holder .overlay:after {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 0, 0, 0);
+  border-right-color: #e57373;
+  border-width: 15px;
+  margin-top: -15px
+}
+
+.count-on .holder .overlay strong {
+  font-weight: 500
+}

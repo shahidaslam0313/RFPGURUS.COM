@@ -1,0 +1,85 @@
+.sh-notification-div{
+  float: none;
+  margin: 0 auto;
+}
+.sh-notification-seen {
+  background: #f2f3f5!important
+}
+.sh-notification-div .heart-detail {
+  margin: 3px!important
+}
+.center-admin-form{
+  margin-top:30px;
+}
+.center-admin-form .sh-notification-div {
+  margin: 0 auto;
+  float: none;
+}
+
+.sh-notification-div.sh .heart-main-div {
+  position: relative
+}
+.curser-pointer{
+  white-space: pre-line;
+  word-break: break-word;
+  margin-bottom: 0px;
+}
+.heart-heading {
+  // color: #fff;
+  // background: rgba(0, 0, 0, .6509803921568628);
+  width: 100%;
+  // padding: 0 25px 0 5px;
+  border-radius: 0;
+  font-weight: 400 !important;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.heart-detail {
+  color: #767676;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  overflow: hidden;
+}
+.addtocart-time {
+  position: absolute;
+  right: 14px;
+  z-index: 9999;
+}
+.sh-notification-div .heart-heading:hover {
+  text-decoration: none;
+  background: none;
+}
+
+.card{
+  margin: 0 auto 20px;
+  padding: 0 0 20px;
+}
+.pd-top-20px{
+  padding-top: 20px;
+}
+.heart-heading p{
+  position: relative;
+  margin: 0;
+  background: #000;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+.heart-heading .sh-del i{
+  color: #fff;
+}
+.sh-del{
+  position: absolute;
+  right: 16px;
+  top: 14px;
+}
+.heart-heading{
+  position: relative;
+}
+p:focus{
+outline: none;
+}

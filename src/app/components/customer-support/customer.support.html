@@ -1,0 +1,53 @@
+
+
+<div class="layout">
+    <mat-card class="mat-elevation-z8">
+        <form class="support-placeholder sh-signup-form-fix" [formGroup]=form>
+            <mat-form-field>
+                <mat-select placeholder="Please select your query" formControlName="sub" required>
+                    <mat-option [value]="query.key" (onSelectionChange)="change($event)" *ngFor="let query of queryList">{{query.value}}</mat-option>
+                </mat-select>
+                <mat-error>Please select a query</mat-error>
+            </mat-form-field>
+            <mat-form-field *ngIf="isSubject">
+                <input matInput placeholder="Subject" formControlName=sub [(ngModel)]="other" name=other (input)="changeSubject($event)" required>
+                <!-- <mat-error *ngIf="sub.hasError('required')">Please provide subject</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="margin-top-10">
+                <textarea matInput placeholder="Message" formControlName=des required></textarea>
+                <mat-error>Please provide message</mat-error>
+            </mat-form-field>
+            <button mat-raised-button type=button class="btn-submit" (click)="CustomerSupport()" [disabled]="disable || !form.valid">Submit</button>
+        </form>
+
+    </mat-card>
+</div>
+
+<div class="row">
+
+<div class="col-lg-4">
+    <p>{{views?.subject}}</p>
+</div>
+</div>
+<div class="sh-container-paymnt " *ngIf="views">
+        <div class="table-responsive margin-top-20">
+          <table class="table payment-table">
+            <thead>
+              <tr>
+                <th>Ticket id</th>
+                <th>Subject</th>
+                <th>Description</th>
+                <!-- <th>Delete</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let card of views">
+                    <td>{{card.unique_ticket_id  }} </td>
+                <td>{{card?.subject}}</td>
+                <td>{{card?.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

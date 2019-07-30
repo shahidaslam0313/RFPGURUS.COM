@@ -1,0 +1,43 @@
+.sh-ad-to-watchlist {
+  padding: 5px 10px!important;
+  margin: 10px 0;
+  text-transform: unset!important;
+}
+
+.rfp-back a {
+  font-weight: 600
+}
+
+.rfp-back {
+  padding: 7px 5px
+}
+
+.rfp-back a {
+  color: #000;
+  cursor: pointer;
+  font-size: 15px
+}
+
+.rfp-back a:hover {
+  text-decoration: underline;
+  color: #c00
+}
+
+.rfp-back a {
+  font-weight: 600
+}
+
+.rfp-back {
+  padding: 7px 5px
+}
+
+.rfp-back a {
+  color: #000;
+  cursor: pointer;
+  font-size: 15px
+}
+
+.rfp-back a:hover {
+  text-decoration: underline;
+  color: #c00
+}

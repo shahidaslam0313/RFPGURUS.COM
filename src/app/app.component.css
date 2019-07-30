@@ -1,0 +1,23 @@
+@media (min-width:1281px) and (max-width:1439px) {
+  .dashboard-footer .footer-upper h2 {
+      font-size: 24px
+  }
+}
+@media (min-width:1025px) and (max-width:1280px) {
+
+  .dashboard-footer .footer-upper {
+    padding: 0 10px
+}
+.dashboard-footer .footer-upper h2 {
+    font-size: 24px;
+    color: #fff
+}
+}
+@media (max-width:991px) {
+  .user-panel .sidebar-holder {
+    top: 120px
+}
+.user-panel .side-bar-component .user-sidebar ul {
+    padding: 0
+}
+}

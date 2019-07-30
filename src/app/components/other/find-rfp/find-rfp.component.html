@@ -1,0 +1,251 @@
+<!-- <app-loader></app-loader> -->
+<meta name="Keywords"
+    content="rfp bid sites,rfp bidding sites, bid sites, rfp usa, government rfp website, rfp consulting firm, rfp consulting firm in dallas, rfp project management, rfp project management services, rfp search engine, rfp project management services, rfp proposal, rfp consulting, government rfp, digital marketing rfp, rfp management, website rfp example, rfp services, rfp for audit services, agency rfp, best rfp software, data management rfp, energy efficiency rfp, rfp for property management services, energy storage rfp, rfp business, rfp contract terms, rfp government bids, government rfp search, rfp aggregator, best rfp database, rfp database, government rfp database, rfp sites, rfp online, find rfp, find rfp bid sites, find rfp bid, find rfp bids, Government Request for Proposal, rfp search, rfp process, marketing rfp database, architectural rfp database, architectural design bids, bid finder, government bids, government contracts, contract bidding websites, construction bidding websites, best construction bid sites, free rfp bid sites, public rfp database,find-bids">
+<div class="main-panel min_height_550px Find-rfp">
+    <div class="main-content custom ">
+        <div class="col-sm-12">
+                <h2 class="main-heading">Find RFPs</h2>
+                <div id="MYHeader" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header  sh-pg-container">
+                    <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12 text-right">
+                        <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
+                            <li [ngClass]="{hide:pager.currentPage === 1}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(1)" class="view-1s" class="btn btn-fill">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === 1}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.currentPage - 1)" class="view-1s"
+                                    class="btn btn-fill">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage <= 30}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.currentPage - 30)">...</a>
+                            </li>
+                            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(page)" class="view-plan-details">{{page | number}}</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"
+                                *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.currentPage + 3)">...</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                        | number}}</a>
+                            </li>
+                            <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                            <li *ngIf="pager.currentPage === pager.totalPages">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                        | number}}</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.currentPage + 1)" class="view-plan-details"
+                                    class="btn btn-fill" type="Next">
+                                    <i class="fa fa-angle-right top-set"></i>
+                                </a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.totalPages)" class="view-plan-details"
+                                    class="btn btn-fill" type="Next">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 prod-select-list sec-list sh-select-list"
+                        *ngIf="pager.pages && pager.pages.length">
+                        <label class="product-label">Items per page:
+                        </label>
+                        <mat-form-field>
+                            <!-- <mat-select class="width-sec" placeholder="" value="{{pageSize}}" (change)="page(pageSize)"
+                                value="pageSize" required [(ngModel)]="pageSize" name="pageSize"> -->
+
+                                <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                name="pageSize">
+
+
+
+                                <mat-option value="15" onclick="topFunction()" selected="true">15</mat-option>
+                                <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                                <mat-option onclick="topFunction()" value="35">35</mat-option>
+                                <mat-option onclick="topFunction()" value="50">50</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="mg-top sh-n-table sh-signup-form-fix col-sm-12 padding-0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>RFP No.</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>State</th>
+                                <th> From Posted Date</th>
+                                <th>From Submission Date</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <mat-form-field>
+                                        <input matInput name="Rfpnum" [(ngModel)]=Rfpnum placeholder="RFP No."
+                                            (ngModelChange)="onPaginateChange(1)" />
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field>
+                                        <input matInput name="title" [(ngModel)]=title placeholder="Title"
+                                            (ngModelChange)="onPaginateChange(1)" />
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="sh-tb-select">
+                                        <mat-select [(ngModel)]=cates name="cates" placeholder="Category" [disabled]='true'
+                                            (ngModelChange)="  changecates(cates)">
+                                            <input class="inp" type="text" [(ngModel)]="catsearch" 
+                                                [ngModelOptions]="{standalone: true}" placeholder="Search By Category"
+                                                class="search-allstates">
+                                            <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                                            <mat-option class="sh-tb-option" value='all'>Select All</mat-option>
+                                            <mat-option class="sh-tb-option"
+                                                *ngFor="let catitem of cat  | filter:catsearch " [value]="catitem.category_name">{{catitem.category_name}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="sh-tb-select">
+                                        <mat-select [(ngModel)]="states" name="states" placeholder="State" [disabled]='true'
+                                            (ngModelChange)="changestate(states)">
+                                            <input class="inp" type="text" [(ngModel)]="statsearch" 
+                                                [ngModelOptions]="{standalone: true}" class="search-allstates"
+                                                placeholder="Search By State">
+                                            <i class="fa fa-search s-icon-all-states" area-hidden="true"></i>
+                                            <mat-option class="sh-tb-option" value='all'>Select All</mat-option>
+                                            <mat-option class="sh-tb-option"
+                                                *ngFor="let item of state  | filter:statesearch " [value]="item.state">
+                                                {{item.state}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                                <td class="sh-table-date">
+                                    <mat-form-field >
+                                        <input matInput [matDatepicker]="startPicker" (focus)="startPicker.open()"
+                                            name="enterdate"  [(ngModel)]="enterdate"   placeholder="MM/DD/YYYY"
+                                            (ngModelChange)="changeenterdate(enterdate)" />
+                                        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+                                        <mat-datepicker #startPicker></mat-datepicker>
+                                    </mat-form-field>
+                                </td>
+                                <td class="sh-table-date">
+                                    <mat-form-field class="example-full-width mat-size ">
+                                        <input matInput [matDatepicker]="startPicker1" (focus)="startPicker1.open()"
+                                            name="submission_from" [(ngModel)]="submission_from" 
+                                            placeholder="MM/DD/YYYY"  (ngModelChange)="changeduedate(submission_from)" />
+                                        <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle>
+                                        <mat-datepicker #startPicker1></mat-datepicker>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="search == false && items">
+                            <tr *ngFor="let data of items;let i=index">
+                                <td>
+                                    <a class="curser-pointer " [routerLink]="['/rfp']"
+                                        [queryParams]="{query:data.seoTitleUrl}"
+                                        (click)="move()"><span>{{data.rfpkey | titlecase}}</span></a>
+                                </td>
+                                <td><span class="block-ellipsis"> {{data. title}}</span></td>
+                                <td><a class="category-name"  class="cat-elips" [routerLink]="['/category']"
+                                        [queryParams]="{ cat: data.new_category}"><span>{{data.new_category}}</span></a>
+                                </td>
+                                <td class="sh-align-center"><a class="category-name" [routerLink]="['/state']"
+                                        [queryParams]="{ state: data.state}"><span>{{data.state }}</span></a> </td>
+                                <!-- <td class="sh-align-center">{{data.date_entered | date:'EEEE, MMM dd, y' }} </td>
+                                    <td class="sh-align-center">{{data.due_date | date:'EEEE, MMM dd, y' }} </td> -->
+                                <td *ngIf="check(data.date_entered) == true" class="sh-align-center">{{data.date_entered
+                                        | date:'EEEE, MMM dd, y'}}</td>
+                                <td *ngIf="check(data.date_entered) == false" class="sh-align-center"></td>
+                                <td *ngIf="check(data.due_date) == true" class="sh-align-center">{{data.due_date |
+                                        date:'EEEE, MMM dd, y'}}</td>
+                                <td *ngIf="check(data.due_date) == false" class="sh-align-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div *ngIf="search == true || item=='0'" class="text-center">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <h3 class="text-center">No Record Found</h3>
+                    </div>
+                </div>
+            <div class="example-container mat-elevation-z8">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sh-pg-container" *ngIf="search == false">
+                    <div class="col-lg-9 col-md-8 col-sm-9 col-xs-12 text-right">
+                        <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
+                            <li [ngClass]="{hide:pager.currentPage === 1}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(1);" class="view-1s" class="btn btn-fill">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === 1}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.currentPage - 1)" class="view-1s"
+                                    class="btn btn-fill">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage <= 30}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.currentPage - 30)">...</a>
+                            </li>
+                            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(page)" class="view-plan-details">{{page | number}}</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"
+                                *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.currentPage + 3)">...</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                    | number}}</a>
+                            </li>
+                            <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                            <li *ngIf="pager.currentPage === pager.totalPages">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                                    | number}}</a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                <a (click)="onPaginateChange(pager.currentPage + 1)" class="view-plan-details"
+                                    class="btn btn-fill" type="Next">
+                                    <i class="fa fa-angle-right top-set"></i>
+                                </a>
+                            </li>
+                            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                                <a onclick="topFunction()" (click)="onPaginateChange(pager.totalPages)" class="view-plan-details"
+                                    class="btn btn-fill" type="Next">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12 prod-select-list sec-list sh-select-list"
+                        *ngIf="pager.pages && pager.pages.length">
+                        <label class="product-label">Items per page:
+                        </label>
+                        <mat-form-field>
+                            <!-- <mat-select class="width-sec" placeholder="" value="{{pageSize}}" (change)="page(pageSize)"
+                                value="pageSize" required [(ngModel)]="pageSize" name="pageSize"> -->
+
+                                <mat-select class="width-sec" placeholder="" value="{{pageSize}}" #val
+                                (valueChange)="page(val.value)" value="pageSize" required [(ngModel)]="pageSize"
+                                name="pageSize">
+                                <mat-option onclick="topFunction()" value="15" selected="true">15</mat-option>
+                                <mat-option onclick="topFunction()" value="20">20 </mat-option>
+                                <mat-option  onclick="topFunction()"value="35">35</mat-option>
+                                <mat-option onclick="topFunction()" value="50">50</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+.layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.support-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mat-card {
+    max-width: 550px;
+    width: 100%;
+}
+
+mat-form-field {
+    font-size: 18px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 600 !important;
+    color: #1f1c1c !important;
+    width: 100% !important;
+    margin-top: -10px;
+}
+
+::ng-deep .mat-option.mat-selected:not(.mat-option-multiple) {
+    background-color: #000 !important;
+    box-shadow: 0 4px 20px 0px rgba(255, 255, 255, 0.14), 0 7px 10px -5px rgba(192, 192, 192, 0.4);
+    font-weight: bold;
+    color: #fff;
+}
+
+::ng-deep .mat-select-panel .mat-option:hover {
+    background-color: #000 !important;
+    box-shadow: 0 4px 20px 0px rgba(255, 255, 255, 0.14), 0 7px 10px -5px rgba(192, 192, 192, 0.4);
+    font-weight: bold;
+    color: #FFF;
+}
+
+.btn-submit[disabled] {
+    background-color: #585858;
+    color: #fff !important;
+    cursor: not-allowed;
+}
+
+.btn-submit[disabled]:hover {
+    background-color: rgba(204, 0, 0, 0.466);
+    color: #fff !important;
+    cursor: not-allowed;
+}
+
+.btn-submit {
+    background-color: #000;
+    border-radius: 30px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold !important;
+}
+
+.btn-submit:hover {
+    background-color: #c00;
+    color: #FFF
+}
+
+textarea::-webkit-scrollbar {
+    width: 9px;
+    background-color: rgb(219, 219, 219);
+}
+
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.116);
+    background-color: #4f4f4f;
+}
+.mat-card{
+    padding: 30px;
+}
+.sh-container-paymnt {
+    padding: 10px 0;
+    min-height: 550px
+  }
+  .sh-container-paymnt{
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  
+.payment-table tbody {
+    background: #e8e8e8;
+    border-bottom: 1px solid #000
+  }
+  
+  .payment-table thead th {
+    font-weight: 700;
+    color: #fff
+  }
+  
+  .payment-table tbody td {
+    text-align: center;
+    font-size: 16px;
+    color: #555
+  }
+  
+  .payment-table tbody td a {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    width: 40px
+  }
+  .payment-table>thead>tr>th {
+      color: #fff;
+      font-weight: 600;
+      background: #000;
+      font-size: 17px;
+      text-align: center;
+  }
+  
+  .payment-table>tbody>tr>td {
+      background-color: #fff;
+      border-left: 1px solid #f5f5f5;
+      vertical-align: middle;
+  }
+  
+  .payment-table>tbody>tr>td:first-child {
+      border-left: none
+  }
+  .margin-top-10{
+      margin-top: 10px;
+  }
